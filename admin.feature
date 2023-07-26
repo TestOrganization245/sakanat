@@ -11,3 +11,6 @@ Scenario: apartment acceptance
 Given That I choise To accept the request 
 Then the data will be added succesfully
 
+Scenario: Available reservation
+Given That I choose To view reservations 
+Then available reservations must be viewed

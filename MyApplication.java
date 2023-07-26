@@ -81,9 +81,9 @@ public class MyApplication {
     public void run() {
         boolean running = true;
         Scanner scanner = new Scanner(System.in);
-
+     //   System.out.println("Welcome to the Application!");
         while (running) {
-            System.out.println("Welcome to the Application!");
+           System.out.println("Welcome to the Application!");
             System.out.println("Please select an option:");
             System.out.println("1. Login");
             System.out.println("2. Exit");
@@ -108,7 +108,7 @@ public class MyApplication {
     }
 
     public void navigateToLoginPage() {
-    	System.out.println("Welcome to the Application!");
+    //	System.out.println("Welcome to the Application!");
         System.out.println("Please select an option:");
         System.out.println("1. Login");
         System.out.println("2. Exit");
@@ -152,6 +152,7 @@ public class MyApplication {
          	        System.out.println("Login successful.");
          	    } else {
          	        System.out.println("Invalid email or password. Please try again.");
+         	     //  navigateToLoginPage();
          	    }
                 break;
             case 2:
@@ -166,8 +167,8 @@ public class MyApplication {
         for (User user : userList) {
             if (user.getEmail().equals(email) && user.getPassword().equals(password)  ) {
                 loggedIn = true;
-                welcomeMessage = "Welcome, " + email +" " +  user.gettype()+  "!!";
-                System.out.printf(welcomeMessage + user.gettype() );
+                welcomeMessage = "Welcome, " + email +" " +   "!!" +"\n";
+                System.out.printf(welcomeMessage+"\n" + "Type OF PERSON: "+ user.gettype() +"\n\n" );
                 em = user.getEmail();
                 tyu = user.gettype();
                 return true;
