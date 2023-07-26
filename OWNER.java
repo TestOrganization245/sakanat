@@ -24,6 +24,7 @@ import java.util.Scanner;
     private int numBathrooms;
     private int numBedrooms;
     private boolean hasBalcony;
+    private boolean Reserved;
     
 
     
@@ -44,9 +45,23 @@ import java.util.Scanner;
         this.hasBalcony = y;
         this.id = nextId++;
     }
+    
+    public apartment(int id, int floorId, int bath, int bed, boolean y, boolean RR) {
+        //this.id = id;
+        this.floorId = floorId;
+        this.numBathrooms = bath;
+        this.numBedrooms = bed;
+        this.hasBalcony = y;
+        this.Reserved=RR;
+        this.id = nextId++;
+    }
 
     public int getId() {
         return id;
+    }
+    
+    public boolean getRR() {
+        return Reserved;
     }
 
     public int getFloorId() {
@@ -532,8 +547,8 @@ public class OWNER {
 					 
 					 System.out.println("This is the apartment number "+ y +" information");
 					 app.add(new apartment(y,i, bath, bedrooms,balcony));
-					// ap.add(new apartment(y,i, bath, bedrooms,balcony));
-					// System.out.println(ap.get(y - 1).getId() + "," + ap.get(y - 1).getFloorId() + "," + ap.get(y - 1).getNumBathrooms() + "," + ap.get(y - 1).getNumBedrooms() + "," + ap.get(y - 1).hasBalcony());
+					 ap.add(new apartment(y,i, bath, bedrooms,balcony));
+					 System.out.println(ap.get(y - 1).getId() + "," + ap.get(y - 1).getFloorId() + "," + ap.get(y - 1).getNumBathrooms() + "," + ap.get(y - 1).getNumBedrooms() + "," + ap.get(y - 1).hasBalcony());
 					 System.out.print("This apartement will be added as soon as the adminstrator accepts it.");
 					 
 					 

@@ -1,7 +1,6 @@
 package sakanat;
 
 import org.junit.runner.RunWith;
-
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import io.cucumber.junit.CucumberOptions.SnippetType;
@@ -9,10 +8,14 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 @RunWith(Cucumber.class)
 @CucumberOptions(
    // features = "Features/check.feature",  "Features/owner.feature"
-   // features = {"Features/check.feature", },
+  // features = {"Features/login.feature", "Features/owner.feature" },
     		// features = "Features/check.feature",
     		 
-    				  features = "Features/login.feature",
+    				  features = "Features/admin.feature",
+    				  
+    				  
+    				  
+    				  
     //features1 = "Features/owner.feature",
    // glue = "com.example.stepdefinitions",
    // plugin = {"pretty", "html:target/cucumber-reports"}
@@ -21,7 +24,8 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
     	    plugin = {"pretty", "html:target/cucumber-reports"},
     	    snippets = SnippetType.CAMELCASE // Optional: Specify the snippet type
     
-    
+    	  //package sakanat;
+
     
 )
 
