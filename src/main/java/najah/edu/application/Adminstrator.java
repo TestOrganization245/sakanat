@@ -18,7 +18,8 @@ public class Adminstrator {
 	}
 	
 	public void checkk(int x) {
-		if(x==1) {
+		if(x==1) { 
+			
 			furnn= user.addFurnn();
 			System.out.println("The available furniture requests are :");
 			for(int i=0;i<furnn.size();i++) {

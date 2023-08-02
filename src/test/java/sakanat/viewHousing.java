@@ -78,7 +78,7 @@ public void anErrorMessageToShowThatThisIsSpecifiedForStudent() {
 @Given("The user of the third house isn't student")
 public void theUserOfTheThirdHouseIsnTStudent() {
 	Check=false;
-    // Write code here that turns the phrase above into concrete actions
+    /// Write code here that turns the phrase above into concrete actions
     //throw new io.cucumber.java.PendingException();
 }
 

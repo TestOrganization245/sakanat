@@ -68,6 +68,7 @@ public static boolean D=false;
 		
 		
 		        checkresadd = nn.newapplication();
+		        //s
 		        
 		        
 		      //  System.out.print("iii  " + checkresadd);

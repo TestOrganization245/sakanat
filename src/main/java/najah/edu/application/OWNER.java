@@ -993,6 +993,7 @@ public class OWNER {
 	            if (app.getres()== x) {
 	                selectedApartment = app;
 	                break;
+	                
 	            }
 	        }
 
