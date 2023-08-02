@@ -1,0 +1,26 @@
+residence ID: 1
+Apartment ID: 5
+Floor ID: 1
+Number of Bathrooms: 2
+Number of Bedrooms: 3
+Is There a Balcony: false
+
+residence ID: 1
+Apartment ID: 8
+Floor ID: 2
+Number of Bathrooms: 1
+Number of Bedrooms: 2
+Is There a Balcony: true
+
+
+---------------------------------
+residence ID: 2
+Apartment ID: 5
+Floor ID: 1
+Number of Bathrooms: 3
+Number of Bedrooms: 1
+Is There a Balcony: true
+
+
+---------------------------------
+
