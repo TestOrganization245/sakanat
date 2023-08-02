@@ -16,4 +16,4 @@ Then An error message to show that this is specified for student
 Scenario: Student house check fail
 Given The user of the third house isn't student
 When I choose to check itt
-Then No error message will be shown. The accomodation process continues.
+Then No error message will be shown.The accomodation process continues.

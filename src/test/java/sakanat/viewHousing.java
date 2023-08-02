@@ -87,7 +87,7 @@ public void iChooseToCheckItt() {
 	Test=T.Check(3);
 }
 
-@Then("No error message will be shown. The accomodation process continues.")
+@Then("No error message will be shown.The accomodation process continues.")
 public void noErrorMessageWillBeShownTheAccomodationProcessContinues() {
     Assertions.assertTrue(Test==Check);
 
