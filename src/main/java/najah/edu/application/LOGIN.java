@@ -17,6 +17,7 @@ public class LOGIN {
     public static String tyu = "";
     public static String ten = "";
     
+    
     public void run() {
         while (true) {
            System.out.println("Welcome to the Application!");
