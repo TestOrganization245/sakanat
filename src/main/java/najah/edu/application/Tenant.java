@@ -9,12 +9,6 @@ import java.util.Scanner;
 
 
 
-
-////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////// REQUIERED LISTS CLASSES  ////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////
-
-//1
 class User {
 	private String Name;
     private String email;
@@ -70,7 +64,6 @@ class User {
 }
 
 
-//2
 class House {
     private String PicLink;
     private double price;
@@ -120,7 +113,6 @@ class House {
 }
 
 
-//3
  class Furn{
 	private String pic;
 	private double price;
@@ -150,8 +142,6 @@ class House {
 
  
  
- 
- /////////////////////////////////////////// MAIN CLASS ///////////////////////////////////////////////
  
 public class Tenant {
 	static LOGIN login=new LOGIN();
@@ -184,7 +174,6 @@ public class Tenant {
     public Tenant() {
     	this.scanner = new Scanner(System.in);
         userList = new ArrayList<User>();
-        // Add initial users to the user list
         userList.add(new User("Lama","example1@example.com", "password1" , "tenant","123", 18, "I Don't Work, I'm a princess <3","1"));
         userList.add(new User("Ibtissam","example2@example.com", "password2" , "owner","123", 27 , "Waiter at a resturent","2"));
         userList.add(new User("Sami","example3@example.com", "password3" , "admin","234", 21 , "WEWE","1"));
@@ -231,10 +220,6 @@ public class Tenant {
     
     
     
-    ////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////VIEWING THE HOUSE FUNCTIONS/////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////
-    
     public void printTenant() {
     	System.out.println();
     	System.out.println("*******    Welcome our tenant!!    *******");
@@ -254,7 +239,6 @@ public class Tenant {
     }
     
     
-    //TEST
     public boolean Vview() {
     	boolean available =false;
     	System.out.println();
@@ -286,7 +270,6 @@ public class Tenant {
     		continue;
     	}
     	else if(Z==2) {
-    		//Making sure if the house is owned recently by students or not When accomodating
     		 if(Check(V)) {
     		    	Y=scanner.nextLine();
     		    	Y=scanner.nextLine();
@@ -377,14 +360,12 @@ public class Tenant {
     
 
         public static void printColorText(String text, ConsoleColor color) {
-            // ANSI escape codes to change text color
             String colorCode = "\u001B[" + color.getCode() + "m";
             String resetCode = "\u001B[0m";
 
             System.out.println(colorCode + text + resetCode);
         }
 
-        // Enum to represent different console colors
         public enum ConsoleColor {
             RED("31"),
             GREEN("32"),
@@ -444,10 +425,8 @@ public class Tenant {
     		return false;
     }
     
-    //TEST
     public boolean Checkk(int j) {
     	if(Houses.get(j-1).getType()=="student") {
-    		//System.out.println("\n\n- NOTE: This house is specified for students, you wanna know about their details?");
     		return true;
     	}
     	else
@@ -456,7 +435,6 @@ public class Tenant {
     
     
     public static String emailll(String email) {
-    	//System.out.print(email);
     	return email;
     }
     
@@ -474,16 +452,12 @@ public class Tenant {
     public static String generateRandomDate() {
         Random random = new Random();
 
-        // Set a random year between 1900 and 2099
         int year = random.nextInt(1) + 2024;
 
-        // Set a random month (0-11) since months in Calendar are 0-based
         int month = random.nextInt(12);
 
-        // Set a random day of the month
         int day = random.nextInt(30);
 
-        // Create a Calendar instance and set the year, month, and day
         return ("And the payment operation must be done before the date :     "+ day+"-" + month+"-"+year);
     }
     
@@ -509,10 +483,6 @@ public class Tenant {
     }
     
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////
-    //////////////////////////// ADDING FURNITURE FUNCTIONS  ///////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////
-    
 
     public boolean viewFurn(String mail) {
     	String FurnID="";
@@ -545,7 +515,6 @@ public class Tenant {
     
     
     
-    //TESTTTTT
     
     public boolean viewFurnn(String mail, String pic,double price, String det, String ID) {
         	newFurniture.add(new Furn(pic, price, det,ID));
@@ -554,18 +523,10 @@ public class Tenant {
     		printColorText    ("________________________________________________________________________________",ConsoleColor.RED);
             return false;
     }
-    /*
-    public void addFurn(String userr ) {
-    	newFurniture.add(new Furn(picture, pricee, detailss, userr));
-		printColorText    ("________________________________________________________________________________\n",ConsoleColor.RED);
-    	System.out.println("\nA REQUEST HAS BEEN SENT\n== Your furniture will be added to the system as long as the adminstrator accepts it.");
-		printColorText    ("________________________________________________________________________________",ConsoleColor.RED);
-
-    }*/
+    
     
     
     public List<Furn> addFurnn() {
-    	//newFurniture.add(new Furn(Pic, Price, t3bt,FurnID));
     	for(int i=0;i<newFurniture.size();i++) {
     		System.out.println(newFurniture.get(i).getPrice());
         }
@@ -600,11 +561,6 @@ return newFurniture;
     
     
     
-    
-    
-    ////////////////////////////////////////////////////////////////////////////////////////////////
-    //////////////////////////// ADDING ADMINSTRATOR FUNCTIONS  ////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////
     
     
     public void printMainAdminstrator() {
