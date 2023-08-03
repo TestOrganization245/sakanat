@@ -107,6 +107,8 @@ public class LOGIN {
     public boolean getT() {
    	 if(tyu == "tenant") {
    		 return true ;
+   		 
+   		 
    	 }
    	 return false;
     }
