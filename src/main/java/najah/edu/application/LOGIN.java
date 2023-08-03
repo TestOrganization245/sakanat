@@ -113,6 +113,8 @@ public class LOGIN {
    	 return false;
     }
     
+    
+    
     public boolean getD() {
       	 if(tyu == "admin") {
       		 return true ;
