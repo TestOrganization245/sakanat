@@ -2,6 +2,7 @@ package najah.edu.application;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class LOGIN {
 	public Tenant user = new Tenant();
@@ -9,6 +10,7 @@ public class LOGIN {
     private boolean loggedIn;
     private String welcomeMessage;
     Scanner scanner=new Scanner(System.in);
+    Logger logger = Logger.getLogger(LOGIN.class.getName());
     private String enteredEmail;
     private String enteredPassword;
     private String enteredtype;
@@ -22,10 +24,10 @@ public class LOGIN {
     
     public void run() {
         while (true) {
-           System.out.println("Welcome to the Application!");
-            System.out.println("Please select an option:");
-            System.out.println("1. Login");
-            System.out.println("2. Exit");
+          logger.info("Welcome to the Application!");
+            logger.info("Please select an option:");
+            logger.info("1. Login");
+            logger.info("2. Exit");
 
            choice = scanner.nextInt();
             switch (choice) {
@@ -35,7 +37,7 @@ public class LOGIN {
                 case 2:
                     break;
                 default:
-                    System.out.println("Invalid choice. Please try again.");
+                	logger.info("Invalid choice. Please try again.");
             }
             break;
         }
@@ -47,25 +49,25 @@ public class LOGIN {
     
 
     public void navigateToLoginPage() {
-            	 System.out.println("Navigating to the login page...");
-         	    System.out.println("            === Login Page ===");
-         	    System.out.println("- Please enter your email and password:");
-         	    System.out.println("Email: ");
+    	logger.info("Navigating to the login page...");
+    	logger.info("            === Login Page ===");
+    	logger.info("- Please enter your email and password:");
+    	logger.info("Email: ");
          	    String email;
          	    email = scanner.nextLine();
          	   email=scanner.nextLine();
          	    enteredEmail=email;
          	    String password;
-         	   System.out.println("Password: ");
+         	   logger.info("Password: ");
          	    password = scanner.nextLine();
          	   enteredPassword=password;
          	    
          	    if (performLogin(enteredEmail, enteredPassword)) {
-         	        System.out.println("Login successful.");
-         	       System.out.println();
-         	      System.out.println();
+         	    	logger.info("Login successful.");
+         	    	logger.info("\n");
+         	    	logger.info("\n");
          	    } else {
-         	        System.out.println("Invalid email or password. Please try again.");
+         	    	logger.info("Invalid email or password. Please try again.");
          	    }
              
     	
