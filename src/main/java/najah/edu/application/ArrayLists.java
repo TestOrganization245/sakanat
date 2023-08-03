@@ -10,9 +10,9 @@ class Userr {
     private String email;
     private String password;
 	private String type;
-	private String ID;
+	private String iD;
 	private int age;
-	private String Job;
+	private String job;
 	public Userr() {
 		
 	}
@@ -25,22 +25,22 @@ class Userr {
         this.email = email;
         this.password = password;
         this.type = type;
-        this.ID = id;
+        this.iD = id;
     }
     public Userr(String email, String password , String type, String ID, int age, String Job) {
         this.email = email;
         this.password = password;
         this.type = type;
-        this.ID=ID;
+        this.iD=ID;
         this.age=age;
-        this.Job=Job;
+        this.job=Job;
 
     }
     public String getID() {
-        return ID;
+        return iD;
     }
     public String getJob() {
-        return Job;
+        return job;
     }
     public int getage() {
         return age;
@@ -70,9 +70,7 @@ public class ArrayLists {
     private String enteredtype;
     public static String tyu = "";
     public ArrayLists() {
-    	//this.scanner = new Scanner(System.in);
         userList = new ArrayList<Userr>();
-        // Add initial users to the user list
         userList.add(new Userr("example1@example.com", "password1" , "owner"));
         userList.add(new Userr("example2@example.com", "password2" , "aowner"));
         userList.add(new Userr("example3@example.com", "password3" , "admin"));

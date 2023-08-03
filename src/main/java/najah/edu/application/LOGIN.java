@@ -5,8 +5,8 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class LOGIN {
-	public Tenant user = new Tenant();
-	public static String em ;
+	public static Tenant user = new Tenant();
+	public static  String em ;
     private boolean loggedIn;
     private String welcomeMessage;
     Scanner scanner=new Scanner(System.in);
@@ -15,7 +15,7 @@ public class LOGIN {
     private String enteredPassword;
     private String enteredtype;
     public static int choice;
-    public List<User> userlist=user.liss();
+    public static final  List<User> userlist=user.liss();
     public static String tyu = "";
     
     public static String ten = "";
