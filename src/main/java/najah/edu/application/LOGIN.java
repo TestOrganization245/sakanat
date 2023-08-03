@@ -106,11 +106,6 @@ public class LOGIN {
     
     
     
-    //hiiiaaaaiiiiqqqqqoooorrr
-    
-   // kkkgggsssqaaaa22yy22qqqef
-    
-    
     public boolean getT() {
    	 if(tyu == "tenant") {
    		 return true ;
