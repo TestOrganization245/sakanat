@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
  class apartment {
@@ -159,7 +159,7 @@ public class OWNER {
 	public static int idsamalll = -1;
 	Tenant o = new Tenant() ;
 	 private List<apartment> apartment = new ArrayList<apartment>();
-
+     Logger logger = Logger.getLogger(OWNER.class.getName());
 	
 	 private List<apartment> ap = new ArrayList<apartment>();
 
@@ -227,21 +227,21 @@ public class OWNER {
 		 Scanner scanner = new Scanner(System.in);
 		System.out.print("hello owner in your page .");
 		
-		System.out.println("_______page owner ___________");
-		System.out.println("please can you select from menu the process");
-		System.out.println("1.Add House");
-		System.out.println("2.view the house option in dashbord ");
+		logger.info("_______page owner ___________");
+		logger.info("please can you select from menu the process");
+		logger.info("1.Add House");
+		logger.info("2.view the house option in dashbord ");
 		int flag = scanner.nextInt();
 		switch(flag) {
 		case 1: 
-			System.out.println("OK. Please add the required information for the residence. ");
+			logger.info("OK. Please add the required information for the residence. ");
 			flagg =1;
 			addhouse();
 			break;
 		case 2: 
-			System.out.println("ok, you can show the view of house added to app.");
+			logger.info("ok, you can show the view of house added to app.");
 			view();
-			System.out.println("Are you need to return back???");
+			logger.info("Are you need to return back???");
 			String u;
 			u = scanner.next();
 			if(u.equals("Y")) {
@@ -250,7 +250,7 @@ public class OWNER {
 			
 			break;
 		default:
-            System.out.println("Invalid choice. Please try again.");
+			logger.info("Invalid choice. Please try again.");
             
 		}
 		
@@ -261,36 +261,36 @@ public class OWNER {
 	public void addhouse() {
 		   
 	        
-		System.out.println();
-		System.out.println();
-	        System.out.println("Available options:");
+		logger.info("\n");
+		logger.info("\n");
+		logger.info("Available options:");
 	        for (int i = 0; i < availableOptions.size(); i++) {
 	            String option = availableOptions.get(i);
-	            System.out.println("- " + option);
+	            logger.info("- " + option);
 	        }
-	        System.out.println();
+	        logger.info("\n");
 	        
 		Scanner s = new Scanner(System.in);
-		System.out.println("Add the photo (provide file path):");
+		logger.info("Add the photo (provide file path):");
 		String photoFilePath = s.nextLine(); 
 	
         File photoFile = new File(photoFilePath);
         if (photoFile.exists()) {
             this.photoFilePath = photoFilePath;
-            System.out.println("Photo file path: " + this.photoFilePath);
+            logger.info("Photo file path: " + this.photoFilePath);
         } else {
-            System.out.println("Invalid photo file path.");
+        	logger.info("Invalid photo file path.");
         }
-        System.out.println();
+        logger.info("\n");
         
       
-        System.out.println("Add the location and number of floors (e.g., nablus, 10 floors):");
+        logger.info("Add the location and number of floors (e.g., nablus, 10 floors):");
         String ssl;
         ssl  = s.nextLine(); 
         String[] parts = ssl.split(",");
 
         if (parts.length < 2) {
-            System.out.println("Invalid input format. Please provide the location and number of floors separated by a comma.");
+        	logger.info("Invalid input format. Please provide the location and number of floors separated by a comma.");
             return; 
         }
 
@@ -302,26 +302,26 @@ public class OWNER {
         try {
             numFloors = Integer.parseInt(floorsString);
         } catch (NumberFormatException e) {
-            System.out.println("Invalid input for the number of floors.");
+        	logger.info("Invalid input for the number of floors.");
             return;
         }
         
       
-		System.out.println("Add the Available Services:");
+        logger.info("Add the Available Services:");
 		String ssa ;
 		ssa = s.next();
-		System.out.println(ssa);
-		System.out.println();
-		System.out.println("Add the Monthly Rent:");
+		logger.info(ssa);
+		logger.info("\n");
+		logger.info("Add the Monthly Rent:");
 		String ssm ;
 		ssm = s.next();
-		System.out.println(ssm);
-		System.out.println();
-		System.out.println("Add the Contact Information:");
+		logger.info(ssm);
+		logger.info("\n");
+		logger.info("Add the Contact Information:");
 		String ssc ;
 		ssc = s.next();
-		System.out.println(ssc);
-		System.out.println();
+		logger.info(ssc);
+		logger.info("\n");
 		
 		String ii=null;
 		
@@ -346,38 +346,38 @@ public class OWNER {
         
         
         
-	        System.out.printf("New residence added successfully!..\n\n" );
-	        System.out.println();
+        logger.info("New residence added successfully!..\n\n" );
+        logger.info("\n");
 	        
 	        x=1;
 	        flag =1;
 	        
 	        if(flag ==1) {
-	        	System.out.printf("OK, after you added a new residence!!! \nQ:Do you need to view all your updated residences ???? \n" );
-	        	System.out.printf("please select from two the following choices (Y / N)");
+	        	logger.info("OK, after you added a new residence!!! \nQ:Do you need to view all your updated residences ???? \n" );
+	        	logger.info("please select from two the following choices (Y / N)");
 	        	
 	    		ssc = s.next();
 	    		if (ssc.equals("Y")) {
 	    			Viewjust();
 	    		    getResidences();
 	    		} else if (ssc.equals("N")) {
-	    			System.out.println("OK");
+	    			logger.info("OK");
 	    		} else {
-	    		    System.out.println("Please select from only two options (Y / N): " + ssc);
+	    			logger.info("Please select from only two options (Y / N): " + ssc);
 	    		}
 	    		
 	        }
 	}
 	
 	 public boolean viewResidences() {
-		 System.out.println();
-	        System.out.println("******** Viewing residences of information ...");
+		 logger.info("\n");
+		 logger.info("******** Viewing residences of information ...");
 	        if(res.equals(null)) {
 	        	return false;
 	        }else {
 	        	 for (int i = 0; i < res.size(); i++) {
 	 	            Residence rr = res.get(i);
-	 	            System.out.println( "Location: " + rr.getLocation() + ", Services: " + rr.getServices() + ", Monthly Rent: " + rr.getMonthlyRent() +
+	 	           logger.info( "Location: " + rr.getLocation() + ", Services: " + rr.getServices() + ", Monthly Rent: " + rr.getMonthlyRent() +
 	                 ", Inclusive: " + rr.isInclusive() + ", Contact Info: " + rr.getContactInfo() + ", OwnerID: " + rr.getidowner()+ ", Floornum: " + rr.getNumFloors());
 	 	            
 	 	        }
@@ -402,7 +402,7 @@ public class OWNER {
 		  }
 		  else {
 			  for (int i = 0; i < res.size(); i++) {
-				    System.out.println("Residence " + (i + 1));
+				  logger.info("Residence " + (i + 1));
 				}
 			  return true ;
 		  }
@@ -417,21 +417,21 @@ public class OWNER {
 		int id =0;
 		int idd =0;
 		for (int i = 0; i < res.size(); i++) {
-		    System.out.println("Residence " + (i + 1));
+			logger.info("Residence " + (i + 1));
 		}
-		System.out.print("the owner id " + res.get(0).getidowner()+ "\n");
-		 System.out.println("please select the residence you want to see the information of it::\n");
+		logger.info("the owner id " + res.get(0).getidowner()+ "\n");
+		logger.info("please select the residence you want to see the information of it::\n");
          int uU;
          uU =   scannerr.nextInt();
 		if (uU >= 1 && uU <= res.size()) {
 			Residence ar = res.get(uU - 1);
-			   System.out.println( "1.  Location: " + ar.getLocation() + "\n    Services: " + ar.getServices() + "\n    Monthly Rent: " + ar.getMonthlyRent() +
+			logger.info( "1.  Location: " + ar.getLocation() + "\n    Services: " + ar.getServices() + "\n    Monthly Rent: " + ar.getMonthlyRent() +
 		                "\n    Inclusive: " + ar.isInclusive() + "\n    Contact Info: " + ar.getContactInfo() + "\n    OwnerID: " + ar.getidowner()+ "\n    Floornum: " + ar.getNumFloors()+"\n");
-			   System.out.print("the number of floors in the residence you chose is equal to:" + ar.getNumFloors()+ "\n");
-			   System.out.println();
-			   System.out.println();
-			   System.out.println("***************************************************");
-			   System.out.println("****** Now you have to provide the floors full info");
+			logger.info("the number of floors in the residence you chose is equal to:" + ar.getNumFloors()+ "\n");
+			logger.info("\n");
+			logger.info("\n");
+			logger.info("***************************************************");
+			logger.info("****** Now you have to provide the floors full info");
 			   
 			  id =  ar.getId();
 			  idd = uU;
@@ -440,7 +440,7 @@ public class OWNER {
 			    flaggg = fnum;
 			  floorr =  buildfloorofresidence(fnum, id);
 			  String filePath = "C:\\Users\\Lenovo\\eclipse-workspace\\sakanat\\datahouse";
-			  System.out.println("good"+id);
+			  logger.info("good"+id);
 			  boolean gg;
 			  cv = idd;
 			gg =  viewResidenceDetailsss(idd, filePath);
@@ -450,20 +450,20 @@ public class OWNER {
 				 
 			 
 			  for(int i=1; i<=fnum;i++) {
-				  System.out.println();
-				  System.out.println("This is floor number "+ i);
-				  System.out.println("Add the number of the apartments in your "+ i +" floor");
+				  logger.info("\n");
+				  logger.info("This is floor number "+ i);
+				  logger.info("Add the number of the apartments in your "+ i +" floor");
 				  Scanner scanner=new Scanner(System.in);
 				  int z= scanner.nextInt();
 				  for(int y=1; y<=z;y++) {
 					
-					 System.out.println("Enter the number of the provided bathrooms:");
+					  logger.info("Enter the number of the provided bathrooms:");
 					 int bath;
 					 bath = scanner.nextInt();
-					 System.out.println("Enter the number of the provided bedrooms:");
+					 logger.info("Enter the number of the provided bedrooms:");
 					 int bedrooms;
 					 bedrooms =scanner.nextInt();
-					 System.out.println("Is there a balcony? (yes/no)");
+					 logger.info("Is there a balcony? (yes/no)");
 						
 						 boolean balcony;
 						
@@ -477,20 +477,20 @@ public class OWNER {
 						         balcony = false;
 						         break;
 						     } else {
-						         System.out.println("Invalid input. Please enter 'yes' or 'no':");
+						    	 logger.info("Invalid input. Please enter 'yes' or 'no':");
 						         H = scanner.next();
 						     }
 						 }
 					 
 					 
-					 System.out.println("This is the apartment number "+ y +" information");
+						 logger.info("This is the apartment number "+ y +" information");
 					 app.add(new apartment(y,i, bath, bedrooms,balcony));
 					 ap.add(new apartment(y,i, bath, bedrooms,balcony));
 					newapp.add(new apartment(y,i, bath, bedrooms,balcony,iddres));
-				 System.out.println(newapp.get(y - 1).getId() + "," + newapp.get(y - 1).getFloorId() + "," + newapp.get(y - 1).getNumBathrooms() + "," + newapp.get(y - 1).getNumBedrooms() + "," + newapp.get(y - 1).hasBalcony()+ "," + newapp.get(y - 1).getres());
+					logger.info(newapp.get(y - 1).getId() + "," + newapp.get(y - 1).getFloorId() + "," + newapp.get(y - 1).getNumBathrooms() + "," + newapp.get(y - 1).getNumBedrooms() + "," + newapp.get(y - 1).hasBalcony()+ "," + newapp.get(y - 1).getres());
 
-					 System.out.print("This apartement will be added as soon as the adminstrator accepts it.");
-					 System.out.println();
+					logger.info("This apartement will be added as soon as the adminstrator accepts it.");
+					logger.info("\n");
 					 
 					 
 				  }
@@ -502,7 +502,7 @@ public class OWNER {
 			  
 		}
 		else {
-			System.out.print("invalid index of switch");
+			logger.info("invalid index of switch");
 
 		}
 		
@@ -598,15 +598,15 @@ public class OWNER {
 	  
 	   
 	    public void gett(int floor) {
-	    	System.out.print("Do you want to view the floors information?");
+	    	logger.info("Do you want to view the floors information?");
 	    	String ee;
 	    ee = scannerr.next();
 	    if(ee.equals("Y")) {
           int s = floor;
-	    	System.out.print("menu of floors in recidence:: \n");
+          logger.info("menu of floors in recidence:: \n");
 	    	for(int i =1; i<= s ; i++) {
 		    	
-		    	System.out.print("floor " + i + "\n");
+	    		logger.info("floor " + i + "\n");
 		    	
 
 	    	}
@@ -614,7 +614,7 @@ public class OWNER {
 	    }else{
 	    int z =	view();
 	    gett(z);
-    		System.out.print("not --------");
+	    logger.info("not --------");
     	}
 	    }
 	    
@@ -658,21 +658,21 @@ public class OWNER {
 		        
 		    }
 		if(select != null) {
-			System.out.println("floor Id:"+ select.getidf());
-    		System.out.println("floor of residence id:" + select.getidr());
+			logger.info("floor Id:"+ select.getidf());
+			logger.info("floor of residence id:" + select.getidr());
     		idfloorselect = select.getidf();
     		int count =1;
     		for(int i = 1; i<= ap.size();i++) {
     			if(ap.get(i-1).getFloorId() == idfloorselect) {
-    				 System.out.println();
-    				 System.out.println("APARTMENT "+ count);
-   				 System.out.println("- Apartment ID :  "+ap.get(i - 1).getId() + "\n" + "- Floor ID :  " + ap.get(i - 1).getFloorId() + "\n" + "- Number Of BathRooms :  " + ap.get(i - 1).getNumBathrooms() + "\n" + "- Number Of BadRooms :  " + ap.get(i - 1).getNumBedrooms() + "\n" + "- Is There A Balcony :  " + ap.get(i - 1).hasBalcony());
+    				logger.info("\n");
+    				logger.info("APARTMENT "+ count);
+    				logger.info("- Apartment ID :  "+ap.get(i - 1).getId() + "\n" + "- Floor ID :  " + ap.get(i - 1).getFloorId() + "\n" + "- Number Of BathRooms :  " + ap.get(i - 1).getNumBathrooms() + "\n" + "- Number Of BadRooms :  " + ap.get(i - 1).getNumBedrooms() + "\n" + "- Is There A Balcony :  " + ap.get(i - 1).hasBalcony());
     				count++;
     				
     			}
     		}
     		count=1;
-    		System.out.println();
+    		logger.info("\n");
     		
     		
     		
@@ -752,11 +752,11 @@ public class OWNER {
 		                int numBedrooms = Integer.parseInt(dataLines[4].split(": ")[1]);
 		                boolean hasBalcony = Boolean.parseBoolean(dataLines[5].split(": ")[1]);
 
-		                System.out.println("- Apartment ID : " + apartmentId);
-		                System.out.println("- Floor ID : " + floorId);
-		                System.out.println("- Number Of Bathrooms : " + numBathrooms);
-		                System.out.println("- Number Of Bedrooms : " + numBedrooms);
-		                System.out.println("- Is There A Balcony : " + hasBalcony);
+		                logger.info("- Apartment ID : " + apartmentId);
+		                logger.info("- Floor ID : " + floorId);
+		                logger.info("- Number Of Bathrooms : " + numBathrooms);
+		                logger.info("- Number Of Bedrooms : " + numBedrooms);
+		                logger.info("- Is There A Balcony : " + hasBalcony);
 
 		                ap.add(new apartment(apartmentId, floorId, numBathrooms, numBedrooms, hasBalcony));
 		                value = true;
@@ -837,12 +837,12 @@ public class OWNER {
     public static  apartment selectedApartment = null;
 
 	 public void Approval() {
-	        System.out.print("Enter the residence ID of the apartment to approve: ");
+		 logger.info("Enter the residence ID of the apartment to approve: ");
 	         residenceId = s.nextLine();
 
 	        for (apartment app : newapp) {
 	        	int x = Integer.parseInt(residenceId);
-	        	System.out.print("****The residenceId selected: " + x + "\n" + "****The residenceId selected of loop array: "+ app.getres() +"\n");
+	        	logger.info("****The residenceId selected: " + x + "\n" + "****The residenceId selected of loop array: "+ app.getres() +"\n");
 	            if (app.getres()== x) {
 	                selectedApartment = app;
 	                break;
@@ -851,10 +851,10 @@ public class OWNER {
 	        }
 
 	        if (selectedApartment == null) {
-	            System.out.println("Apartment with Residence ID '" + residenceId + "' not found.");
+	        	logger.info("Apartment with Residence ID '" + residenceId + "' not found.");
 	        } else {
 	            saveToFile("C:\\Users\\Lenovo\\eclipse-workspace\\sakanat\\datahouse", selectedApartment);
-	            System.out.println("Apartment with Residence ID '" + residenceId + "' has been approved and added to the file.");
+	            logger.info("Apartment with Residence ID '" + residenceId + "' has been approved and added to the file.");
 	        }
 	    }
 	
