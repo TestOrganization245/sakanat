@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class LOGIN {
 	public Tenant user = new Tenant();
 	public static String em ;
-    //public List<User> userList;
     private boolean loggedIn;
     private String welcomeMessage;
     Scanner scanner=new Scanner(System.in);
@@ -38,8 +37,6 @@ public class LOGIN {
             break;
         }
 
-      //  System.out.println("Exiting the application...");
-       // scanner.close();
     }
 
     public void navigateToLoginPage() {
@@ -62,7 +59,6 @@ public class LOGIN {
          	      System.out.println();
          	    } else {
          	        System.out.println("Invalid email or password. Please try again.");
-         	     //  navigateToLoginPage();
          	    }
              
     	
@@ -73,16 +69,11 @@ public class LOGIN {
     
     
     public boolean performLogin(String email, String password) {
-    	/*System.out.println(email);
-    	System.out.println(password);
-    	System.out.println();
-    	System.out.println();*/
+    	
         for (User user : userlist) {
-        	//System.out.println(user.getEmail());
             if (user.getEmail().equals(email) && user.getPassword().equals(password)  ) {
                 loggedIn = true;
-               // welcomeMessage = "Welcome, " + email +" " +   "!!" +"\n";
-               // System.out.printf(welcomeMessage+"\n" + "Type OF PERSON: "+ user.gettype() +"\n\n" );
+               
                 em = user.getEmail();
                 tyu = user.gettype();
                 return true;
