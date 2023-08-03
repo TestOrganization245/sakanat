@@ -108,8 +108,8 @@ public static void main(String args[]) {
  else if(login.getD()==true) {
 	 adm.printMenu();
 	 Scanner scanner = new Scanner(System.in);
-		int C= scanner.nextInt();
-		adm.checkk(C);
+		int c = scanner.nextInt();
+		adm.checkk(c);
  }
  
  else
