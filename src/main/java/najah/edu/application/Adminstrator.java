@@ -10,7 +10,7 @@ public class Adminstrator {
   static Logger logger = Logger.getLogger(Adminstrator.class.getName());
   private static final Scanner s  = new Scanner(System.in); 
    public Tenant user=new Tenant();
-   public List<House> userlist=user.lisH();
+   public List<House> userlist= user.lisH();
    public List<Furn> furnn= user.addFurnn();
 	public void printMenu() {
 		logger.info("****** Hello Adminstrater!!!!!!");
@@ -24,7 +24,7 @@ public class Adminstrator {
 			furnn= user.addFurnn();
 			logger.info("The available furniture requests are :"+ "\n");
 			for(int i=0;i<furnn.size();i++) {
-				logger.info("Request number "+v + "\n");
+				logger.info(String.format("Request number %d%n", v));
 				logger.info("Pic Link: "+furnn.get(i).getPic()+"Price: "+furnn.get(i).getPrice()+", More detailes: "+furnn.get(i).getDetails());
 			}
 			logger.info("\n");
@@ -44,7 +44,7 @@ public class Adminstrator {
 			int Z=1;
 			for(int i=0;i<userlist.size()/2;i++) {
 	            if (userlist.get(i).getReserved()==true ) {
-	            	logger.info("- House "+ Z);
+	            	logger.info(String.format("- House %d", Z));
 	            	logger.info(userlist.get(i).getPicLink()+"\n"+userlist.get(i).getLocation()+"\n"+userlist.get(i).getservices());
 	            	logger.info("\n");
 
@@ -54,7 +54,7 @@ public class Adminstrator {
 			 Z=1;
 			 for(int i=0;i<userlist.size()/2;i++) {
 		            if (userlist.get(i).getReserved()==false ) {
-		            	logger.info("- House "+ Z);
+		            	logger.info(String.format("- House %d", Z));
 		            	logger.info(userlist.get(i).getPicLink()+"\n"+userlist.get(i).getLocation()+"\n"+userlist.get(i).getservices());
 		            	logger.info("\n");
 
@@ -63,7 +63,7 @@ public class Adminstrator {
 		}
 		if(x==3) {
 			logger.info("THE LIST OF information about apartment to accept from admin:\n");
-			logger.info(yy.newapplication());
+			String applicationDetails = yy.newapplication();
 
 			if(yy.newapplication() == null ) {
 				logger.info("NOT apartment to adding *****");
