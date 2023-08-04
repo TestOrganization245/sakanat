@@ -13,7 +13,7 @@ public class LOGIN {
     private String enteredEmail;
     private String enteredPassword;
     private String enteredtype;
-    public static final  List<User> userlist=userr.liss();
+    private static final  List<User> userlist=userr.liss();
     private static String tyu = "";
     
    
