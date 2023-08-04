@@ -14,6 +14,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
+import java.util.function.Supplier;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -557,7 +558,7 @@ public class OWNER {
 	            }
 	        }
 	    }
-	
+	  
 	    public static List<Residence> readffile(String filePath) {
 	        List<Residence> residences = new ArrayList<Residence>();
 	        BufferedReader reader = null;
@@ -582,7 +583,8 @@ public class OWNER {
 	                reid++;
 	            }
 	        } catch (IOException e) {
-	            logger.log(Level.SEVERE, "Error reading file: " + e.getMessage(), e);
+	            logger.log(Level.SEVERE, "Error reading file: " );
+	            logger.log(Level.SEVERE,e.getMessage());
 	        } finally {
 	            if (reader != null) {
 	                try {
