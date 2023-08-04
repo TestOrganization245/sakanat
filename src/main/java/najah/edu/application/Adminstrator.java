@@ -57,27 +57,27 @@ public class Adminstrator {
 			 }
 		}
 		if(x==3) {
-			logger.info("THE LIST OF information about apartment to accept from admin:\n");
-			
-			if(yy.newapplication() == null ) {
-				logger.info("NOT apartment to adding *****");
-		}
-			else {
-				logger.info("*** Are You need to accept the request of adding the apartment from owner ?  \n(the anwser between this choise (yes || YES || NO || no) \n");
-			
-			
-			String y = s.nextLine();
-			if(y.equalsIgnoreCase("yes")) {
-                yy.Approval();
-			}
-			else if (y.equalsIgnoreCase("no")) {
-				logger.info("OK, admin not accept this adding.... ");
-			}
-			else {
-				logger.info("no correct the choises \n");
-			}
-			}
-		}
-	}		
+			processApartmentRequests();}
+	}
+	
+	//
+	private void processApartmentRequests() {
+	    logger.info("THE LIST OF information about apartment to accept from admin:\n");
+
+	    if (yy.newapplication() == null) {
+	        logger.info("NOT apartment to adding *****");
+	    } else {
+	        logger.info("*** Are You need to accept the request of adding the apartment from owner ?\n(the answer between this choice (yes || YES || NO || no)\n");
+
+	        String y = s.nextLine();
+	        if (y.equalsIgnoreCase("yes")) {
+	            yy.Approval();
+	        } else if (y.equalsIgnoreCase("no")) {
+	            logger.info("OK, admin not accept this adding.... ");
+	        } else {
+	            logger.info("no correct the choices \n");
+	        }
+	    }
+	}
 	
 }
