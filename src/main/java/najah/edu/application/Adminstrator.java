@@ -58,7 +58,7 @@ public class Adminstrator {
 		}
 		if(x==3) {
 			logger.info("THE LIST OF information about apartment to accept from admin:\n");
-			String applicationDetails = yy.newapplication();
+			
 			if(yy.newapplication() == null ) {
 				logger.info("NOT apartment to adding *****");
 		}
