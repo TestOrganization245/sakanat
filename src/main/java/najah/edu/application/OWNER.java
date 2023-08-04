@@ -11,6 +11,7 @@ import java.io.PrintWriter;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Logger;
@@ -207,7 +208,7 @@ public class OWNER {
 	
 	   public List<String> getresidence() {
 		    if (residences.isEmpty()) {
-		        return null;
+		    	 return Collections.emptyList();
 		    } else {
 		        return residences;
 		    }
@@ -272,7 +273,8 @@ public class OWNER {
         File photoFile = new File(photoFilePath);
         if (photoFile.exists()) {
             this.photoFilePath = photoFilePath;
-            logger.info("Photo file path: " + this.photoFilePath);
+            logger.info("Photo file path: ");
+            logger.info(  this.photoFilePath);
         } else {
         	logger.info("Invalid photo file path.");
         }
@@ -358,7 +360,8 @@ public class OWNER {
 	    		} else if (ssc.equals("N")) {
 	    			logger.info("OK");
 	    		} else {
-	    			logger.info("Please select from only two options (Y / N): " + ssc);
+	    			logger.info("Please select from only two options (Y / N): " );
+	    			logger.info( ssc);
 	    		}
 	    		
 	        }
@@ -390,17 +393,17 @@ public class OWNER {
 		  
 	        return residences;
 	    }
+	  
 	  public boolean  Viewjust() {
 		  res = readffile("C:\\Users\\Lenovo\\eclipse-workspace\\sakanat\\recidense");
-		  if(res.equals(null)) {
-			  return false;
-		  }
-		  else {
-			  for (int i = 0; i < res.size(); i++) {
-				  logger.info("Residence " + (i + 1));
-				}
-			  return true ;
-		  }
+		    if (res == null || res.isEmpty()) {
+		        return false;
+		    } else {
+		        for (int i = 0; i < res.size(); i++) {
+		            logger.info("Residence " + (i + 1));
+		        }
+		        return true;
+		    }
 		  
 		
 		  
