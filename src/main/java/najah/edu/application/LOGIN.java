@@ -6,19 +6,18 @@ import java.util.logging.Logger;
 
 public class LOGIN {
 	public static Tenant user = new Tenant();
-	public static  String em ;
     private boolean loggedIn;
     private String welcomeMessage;
     Scanner scanner=new Scanner(System.in);
-    Logger logger = Logger.getLogger(LOGIN.class.getName());
+    private static final Logger logger = Logger.getLogger(LOGIN.class.getName());
     private String enteredEmail;
     private String enteredPassword;
     private String enteredtype;
-    public static int choice;
+    //public static int choice;
     public static final  List<User> userlist=user.liss();
     public static String tyu = "";
     
-    public static String ten = "";
+   
     
     
     
@@ -29,7 +28,7 @@ public class LOGIN {
             logger.info("1. Login");
             logger.info("2. Exit");
 
-           choice = scanner.nextInt();
+          int  choice = scanner.nextInt();
             switch (choice) {
                 case 1:
                     navigateToLoginPage();
@@ -83,7 +82,6 @@ public class LOGIN {
             if (user.getEmail().equals(email) && user.getPassword().equals(password)  ) {
                 loggedIn = true;
                
-                em = user.getEmail();
                 tyu = user.gettype();
                 return true;
                
@@ -100,30 +98,22 @@ public class LOGIN {
     }
     
     public boolean getO() {
-   	 if(tyu == "owner") {
-   		 return true ;
-   	 }
-   	 return false;
+        return "owner".equals(tyu);
+
     }
     
     
     
     public boolean getT() {
-   	 if(tyu == "tenant") {
-   		 return true ;
-   		 
-   		 
-   	 }
-   	 return false;
+        return "tenant".equals(tyu);
+
     }
     
     
     
     public boolean getD() {
-      	 if(tyu == "admin") {
-      		 return true ;
-      	 }
-      	 return false;
+        return "admin".equals(tyu);
+
        }
     
     
