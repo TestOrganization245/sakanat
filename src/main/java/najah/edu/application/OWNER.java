@@ -547,13 +547,17 @@ public class OWNER {
 
 	                logger.info("Data appended to file successfully!");
 	        } catch (IOException e) {
-	            logger.log(Level.SEVERE, "Error appending data to file: " + e.getMessage(), e);
+	           
+	            logger.log(Level.SEVERE, "Error appending data to file: " );
+	            logger.log(Level.SEVERE,e.getMessage());
 	        } finally {
 	            if (file != null) {
 	                try {
 	                    file.close();
 	                } catch (IOException e) {
-	                    logger.log(Level.SEVERE, "Error closing file: " + e.getMessage(), e);
+	                  
+	                    logger.log(Level.SEVERE, "Error closing file: " );
+	                    logger.log(Level.SEVERE, e.getMessage(), e);
 	                }
 	            }
 	        }
@@ -590,7 +594,8 @@ public class OWNER {
 	                try {
 	                    reader.close();
 	                } catch (IOException e) {
-	                    logger.log(Level.SEVERE, "Error closing reader: " + e.getMessage(), e);
+	                    logger.log(Level.SEVERE, "Error closing reader: " );
+	                    logger.log(Level.SEVERE, e.getMessage(), e);
 	                }
 	            }
 	        }
