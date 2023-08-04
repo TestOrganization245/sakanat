@@ -11,8 +11,8 @@ public class Main {
     private static int rr;
     private static String mail;
     private static int M;
-    private static int Choice;
-    private static String H;
+    private static int choice;
+    private static String h;
     static Adminstrator adm=new Adminstrator();
     public static boolean pp ;
     private static boolean CHECK=false;
@@ -21,20 +21,20 @@ public class Main {
    static // private List<floor> floor;
     Scanner scanner = new Scanner(System.in);
    
-   static Logger logger = Logger.getLogger(Main.class.getName());
+  private static Logger logger = Logger.getLogger(Main.class.getName());
 	
-  static LOGIN login=new LOGIN();
+  private static LOGIN login=new LOGIN();
   
 public static void main(String args[]) {
 	mail=login.returnEmail();
 	 login.run();
 	while(true) {
-		if(CHECK==true) {
+		if(CHECK) {
 			CHECK=false;
 			 login.run();
 		}
 		
- if(login.getO()==true) {
+ if(login.getO()) {
 	 while(true){
 		 
 	 o = new OWNER();
@@ -56,18 +56,18 @@ public static void main(String args[]) {
 		  logger.info("You have entered a mistaken choice >>.."+ rr);
 		}
 	  logger.info("Would you like to \n1. log out \n2. go back to the main menu?\n");
-	  Choice=scanner.nextInt();
-	  if(Choice==1) {
+	  choice=scanner.nextInt();
+	  if(choice==1) {
 		  logger.info("         ********** YOU LOGGED OUT SUCCESSFULLY *********\n- Would you like log in again?");
-		 H=scanner.nextLine();
-		 H=scanner.nextLine();
-		  if(H.equalsIgnoreCase("yes")) {
+		 h=scanner.nextLine();
+		 h=scanner.nextLine();
+		  if(h.equalsIgnoreCase("yes")) {
 			  CHECK=true;
 		  break;
 		  
 		  }
 	  }
-	  else if(Choice==2) {
+	  else if(choice==2) {
 		  logger.info("\n");
 		  logger.info("\n");
 		  logger.info("\n");
@@ -83,7 +83,7 @@ public static void main(String args[]) {
  }
  
  
- else if(login.getT()==true) {
+ else if(login.getT()) {
 	 T.printTenant();
 	 Scanner scanner= new Scanner(System.in);
  	M=scanner.nextInt();
@@ -105,7 +105,7 @@ public static void main(String args[]) {
  }
  
  
- else if(login.getD()==true) {
+ else if(login.getD()) {
 	 adm.printMenu();
 	 Scanner scanner = new Scanner(System.in);
 		int c = scanner.nextInt();

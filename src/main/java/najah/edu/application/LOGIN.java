@@ -15,7 +15,7 @@ public class LOGIN {
     private String enteredtype;
     //public static int choice;
     public static final  List<User> userlist=user.liss();
-    public static String tyu = "";
+    private static String tyu = "";
     
    
     
