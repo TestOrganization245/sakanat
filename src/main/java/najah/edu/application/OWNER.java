@@ -729,7 +729,7 @@ public class OWNER {
             writer.println(applicationDetails); // Write the application details
             writer.println("---------------------------------"); // Add a separator between entries
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "An error occurred while writing to file:", e);
         } finally {
             if (writer != null) {
                 writer.close();
@@ -786,7 +786,7 @@ public class OWNER {
 	            lines.add(line);
 	        }
 	    } catch (FileNotFoundException e) {
-	        e.printStackTrace();
+	        logger.log(Level.SEVERE, "An error occurred while writing to file:", e);
 	    } finally {
 	        if (scanner != null) {
 	            scanner.close();
@@ -1002,7 +1002,7 @@ public class OWNER {
 		            residences.add(residenceInfo.toString().trim()); // Trim to remove extra whitespace
 		        }
 		    } catch (IOException e) {
-		        e.printStackTrace();
+		        logger.log(Level.SEVERE, "An error occurred while writing to file:", e);
 		    } finally {
 		        if (br != null) {
 		            try {
