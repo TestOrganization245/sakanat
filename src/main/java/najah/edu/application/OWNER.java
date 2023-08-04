@@ -2,7 +2,6 @@ package najah.edu.application;
 
 import java.io.BufferedReader;
 
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -15,8 +14,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Logger;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
+
  class apartment {
     private int id;
     private static int nextId = 1;
@@ -146,9 +145,7 @@ class Residence {
 }
 public class OWNER {
 	
-	public void aPP() {
-       
-    }
+	
 	
 	 String residenceId;
 	public static List<apartment> newapp = new ArrayList<apartment>();
@@ -326,7 +323,7 @@ public class OWNER {
 		
 		
 		for (int counter = 0; counter < tenant.size(); counter++) { 	
-     		 if( (tenant.get(counter).gettype()) == "owner" ) {
+     		 if( (tenant.get(counter).gettype()).equals("owner") ) {
      			
      			 
      		ii = tenant.get(counter).getID();
