@@ -941,8 +941,8 @@ public class OWNER {
 
 		        if (id.equals(selectedResidenceId)) {
 		            String floorsStr = residenceData[residenceData.length - 1];
-		            int numberOfFloors = Integer.parseInt(floorsStr.substring(floorsStr.lastIndexOf(":") + 1).trim());
-		            return numberOfFloors;
+		         
+		           return Integer.parseInt(floorsStr.substring(floorsStr.lastIndexOf(":") + 1).trim());
 		        }
 		    }
 
@@ -956,7 +956,7 @@ public class OWNER {
 	    }
 	 
 	 
-	 public int getNumFloor() {
+	 public int getNumoor() {
 		    return numFloor;
 		}
 	 
@@ -974,7 +974,7 @@ public class OWNER {
 	    }
 	 
 	 
-	 public void setNumFloor(int floorNumber) {
+	 public static void setNumFloor(int floorNumber) {
 	        numFloor = floorNumber;
 	    }
 	 
