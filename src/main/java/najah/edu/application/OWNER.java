@@ -14,6 +14,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
@@ -155,7 +156,7 @@ public class OWNER {
 	private static int idsamalll = -1;
 	Tenant o = new Tenant() ;
 	 private List<apartment> apartment = new ArrayList<apartment>();
-     Logger logger = Logger.getLogger(OWNER.class.getName());
+     static Logger logger = Logger.getLogger(OWNER.class.getName());
 	
 	 private List<apartment> ap = new ArrayList<apartment>();
 
@@ -543,15 +544,15 @@ public class OWNER {
 
 	                file.writeBytes(System.lineSeparator());
 
-	            System.out.println("Data appended to file successfully!");
+	                logger.info("Data appended to file successfully!");
 	        } catch (IOException e) {
-	            System.err.println("Error appending data to file: " + e.getMessage());
+	            logger.log(Level.SEVERE, "Error appending data to file: " + e.getMessage(), e);
 	        } finally {
 	            if (file != null) {
 	                try {
 	                    file.close();
 	                } catch (IOException e) {
-	                    System.err.println("Error closing file: " + e.getMessage());
+	                    logger.log(Level.SEVERE, "Error closing file: " + e.getMessage(), e);
 	                }
 	            }
 	        }
@@ -581,13 +582,13 @@ public class OWNER {
 	                reid++;
 	            }
 	        } catch (IOException e) {
-	            System.err.println("Error reading file: " + e.getMessage());
+	            logger.log(Level.SEVERE, "Error reading file: " + e.getMessage(), e);
 	        } finally {
 	            if (reader != null) {
 	                try {
 	                    reader.close();
 	                } catch (IOException e) {
-	                    System.err.println("Error closing reader: " + e.getMessage());
+	                    logger.log(Level.SEVERE, "Error closing reader: " + e.getMessage(), e);
 	                }
 	            }
 	        }
@@ -676,7 +677,6 @@ public class OWNER {
     		
     		
     		ArrayList<apartment> apart = getapartmentinflooriselected(idfloorselect);
-    		int ss = apart.size();
     		setAppartmentToFloor();    		
     		
     	
