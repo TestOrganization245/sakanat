@@ -1,17 +1,15 @@
 package najah.edu.application;
-
 import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Logger;
-
 public class Adminstrator {
    static  OWNER yy = new OWNER();
   private static  int v;
   static Logger logger = Logger.getLogger(Adminstrator.class.getName());
   private static final Scanner s  = new Scanner(System.in); 
    private static  Tenant user=new Tenant();
-   private static  List<House> userlist= user.lisH();
-   private static List<Furn> furnn= user.addFurnn();
+   private static final List<House> userlist= user.lisH();
+   private static final List<Furn> furnn= user.addFurnn();
 	public void printMenu() {
 		logger.info("****** Hello Adminstrater!!!!!!");
 		logger.info("You have the following available options to see:\n1. Furniture advertisment requests\n2. Available reservations\n3. Apartments requests");
@@ -20,7 +18,8 @@ public class Adminstrator {
 	
 	public void checkk(int x) {
 		if(x==1) { 
-			furnn= user.addFurnn();
+			  furnn.clear();
+	            furnn.addAll(user.addFurnn());
 			logger.info("The available furniture requests are :"+ "\n");
 			for(int i=0;i<furnn.size();i++) {
 				logger.info(String.format("Request number %d%n", v));
@@ -45,7 +44,6 @@ public class Adminstrator {
 	            	logger.info(String.format("- House %d", z));
 	            	logger.info(userlist.get(i).getPicLink()+"\n"+userlist.get(i).getLocation()+"\n"+userlist.get(i).getservices());
 	            	logger.info("\n");
-
 	           z++;}
 		}
 			logger.info("==== Unreserved Houses :");
@@ -61,10 +59,8 @@ public class Adminstrator {
 		if(x==3) {
 			logger.info("THE LIST OF information about apartment to accept from admin:\n");
 			String applicationDetails = yy.newapplication();
-
 			if(yy.newapplication() == null ) {
 				logger.info("NOT apartment to adding *****");
-
 		}
 			else {
 				logger.info("*** Are You need to accept the request of adding the apartment from owner ?  \n(the anwser between this choise (yes || YES || NO || no) \n");
