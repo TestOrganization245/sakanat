@@ -5,16 +5,15 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class LOGIN {
-	public static Tenant user = new Tenant();
-    private boolean loggedIn;
-    private String welcomeMessage;
+	private static Tenant userr = new Tenant();
+    private static boolean loggedIn;
+    private static String welcomeMessage;
     Scanner scanner=new Scanner(System.in);
     private static final Logger logger = Logger.getLogger(LOGIN.class.getName());
     private String enteredEmail;
     private String enteredPassword;
     private String enteredtype;
-    //public static int choice;
-    public static final  List<User> userlist=user.liss();
+    public static final  List<User> userlist=userr.liss();
     private static String tyu = "";
     
    
@@ -76,7 +75,7 @@ public class LOGIN {
     
     
     
-    public boolean performLogin(String email, String password) {
+    public static boolean performLogin(String email, String password) {
     	
         for (User user : userlist) {
             if (user.getEmail().equals(email) && user.getPassword().equals(password)  ) {
