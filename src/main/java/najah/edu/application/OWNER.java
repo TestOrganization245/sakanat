@@ -396,14 +396,16 @@ public class OWNER {
 	  
 	  public boolean  Viewjust() {
 		  res = readffile("C:\\Users\\Lenovo\\eclipse-workspace\\sakanat\\recidense");
-		  if (res != null) {
-		        for (int i = 0; i < res.size(); i++) {
-		            logger.info("Residence " + (i + 1));
-		        }
-		        return true;
-		    } else {
-		        return false;
-		    }
+		  if (res == null) {
+			    return false;
+			} else if (res.isEmpty()) {
+			    return false;
+			} else {
+			    for (int i = 0; i < res.size(); i++) {
+			        logger.info("Residence " + (i + 1));
+			    }
+			    return true;
+			}
 		  
 		
 		  
