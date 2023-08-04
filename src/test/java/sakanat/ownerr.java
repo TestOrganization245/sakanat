@@ -92,7 +92,7 @@ public class ownerr {
 	@When("I view the control panel with the menu of residence list")
 	public void iViewTheControlPanelWithTheMenuOfResidenceList() {
 		System.out.print("*******Menu Of recidences*******\n");
-	    boolean vv =	o.Viewjust();
+	    boolean vv =	o.viewjust();
 		if(vv == true) {
 			
 			Assertions.assertTrue(vv);
