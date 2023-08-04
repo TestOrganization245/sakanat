@@ -6,7 +6,6 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-//import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -147,9 +146,8 @@ class Residence {
 }
 public class OWNER {
 	
-	public void APP() {
-        String applicationDetails = newapplication();
-        int id = getNewAppId(); 
+	public void aPP() {
+       
     }
 	
 	 String residenceId;
@@ -225,7 +223,7 @@ public class OWNER {
 		
 		
 		 Scanner scanner = new Scanner(System.in);
-		System.out.print("hello owner in your page .");
+		logger.info("hello owner in your page .");
 		
 		logger.info("_______page owner ___________");
 		logger.info("please can you select from menu the process");
@@ -646,7 +644,7 @@ public class OWNER {
 	public int selectfloorfrommenu() {
 		int yy ;
 		int idfloorselect =0;
-	    System.out.println("Enter the floor number to view details:");
+	    logger.info("Enter the floor number to view details:");
         floor select = null;
 		yy = ss4.nextInt();
 		
