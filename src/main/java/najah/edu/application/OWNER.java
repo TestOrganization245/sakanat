@@ -14,7 +14,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
-import java.util.function.Supplier;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -148,8 +147,11 @@ class Residence {
 }
 public class OWNER {
 	
-	
-	
+	private static  Tenant tanentt = new Tenant();
+	   private static final List<User> userlist= tanentt.liss();
+
+    private static final String FILE_PATH = "C:\\Users\\Lenovo\\eclipse-workspace\\sakanat\\recidense";
+
 	 String residenceId;
 	private static List<apartment> newapp = new ArrayList<apartment>();
 
@@ -165,7 +167,7 @@ public class OWNER {
 	 Scanner ss4 = new Scanner(System.in);
 	 private List<floor> floorr = new ArrayList<floor>();
 
-	 private List<User> tenant = new ArrayList<User>();
+	// private List<User> tenant = new ArrayList<User>();
      
 	 private List<Residence> res = new ArrayList<Residence>();
 	
@@ -182,7 +184,7 @@ public class OWNER {
 	     int flaggg =0;
 	     int cv =0;
 	    private int x = 0;
-	    private String photoFilePath; 
+	    private String photoFilePath1; 
 	    
 	   public OWNER() {
 		   apartment = new ArrayList<apartment>();
@@ -229,8 +231,8 @@ public class OWNER {
 		logger.info("please can you select from menu the process");
 		logger.info("1.Add House");
 		logger.info("2.view the house option in dashbord ");
-		int flag = scanner.nextInt();
-		switch(flag) {
+		int fflag = scanner.nextInt();
+		switch(fflag) {
 		case 1: 
 			logger.info("OK. Please add the required information for the residence. ");
 			flagg =1;
@@ -264,19 +266,20 @@ public class OWNER {
 		logger.info("Available options:");
 	        for (int i = 0; i < availableOptions.size(); i++) {
 	            String option = availableOptions.get(i);
-	            logger.info("- " + option);
+	            logger.info("- " );
+	            logger.info(option);
 	        }
 	        logger.info("\n");
 	        
-		Scanner s = new Scanner(System.in);
+	
 		logger.info("Add the photo (provide file path):");
 		String photoFilePath = s.nextLine(); 
 	
         File photoFile = new File(photoFilePath);
         if (photoFile.exists()) {
-            this.photoFilePath = photoFilePath;
+           photoFilePath1 = photoFilePath;
             logger.info("Photo file path: ");
-            logger.info(  this.photoFilePath);
+            logger.info(  this.photoFilePath1);
         } else {
         	logger.info("Invalid photo file path.");
         }
@@ -326,13 +329,14 @@ public class OWNER {
 		
 		
 		
-		for (int counter = 0; counter < tenant.size(); counter++) { 	
-     		 if( (tenant.get(counter).gettype()).equals("owner") ) {
+		for (int counter = 0; counter < userlist.size(); counter++) { 	
+     		 if( (userlist.get(counter).gettype()).equals("owner") ) {
      			
      			 
-     		ii = tenant.get(counter).getID();
+     		ii = userlist.get(counter).getID();
      		 }
      		 else {
+     			 logger.info("not owner .. no id ");
      		 }
           }  
 		 Residence reS = new Residence(locationPart, numFloors, ssa, ssm, photoFilePath, ssc ,ii);
@@ -341,7 +345,7 @@ public class OWNER {
      
         res.add(reS);
         viewResidences();
-        appendTo(reS , "C:\\Users\\Lenovo\\eclipse-workspace\\sakanat\\recidense");
+        appendTo(reS , FILE_PATH);
         
         
         
@@ -357,7 +361,7 @@ public class OWNER {
 	        	
 	    		ssc = s.next();
 	    		if (ssc.equals("Y")) {
-	    			Viewjust();
+	    			viewjust();
 	    		    getResidences();
 	    		} else if (ssc.equals("N")) {
 	    			logger.info("OK");
@@ -395,8 +399,8 @@ public class OWNER {
 	        return residences;
 	    }
 	  
-	  public boolean  Viewjust() {
-		  res = readffile("C:\\Users\\Lenovo\\eclipse-workspace\\sakanat\\recidense");
+	  public boolean  viewjust() {
+		  res = readffile(FILE_PATH);
 		  if (res == null) {
 			    return false;
 			} else if (res.isEmpty()) {
@@ -413,7 +417,7 @@ public class OWNER {
 	  }
 	 
 	public int view( ) {
-		res = readffile("C:\\Users\\Lenovo\\eclipse-workspace\\sakanat\\recidense");
+		res = readffile(FILE_PATH);
 		int fnum = 0; 
 		int id =0;
 		int idd =0;
@@ -446,7 +450,7 @@ public class OWNER {
 			  cv = idd;
 			gg =  viewResidenceDetailsss(idd, filePath);
 			
-			 if(gg == false)
+			 if(!gg )
 			 {
 				 
 			 
@@ -468,18 +472,18 @@ public class OWNER {
 						
 						 boolean balcony;
 						
-						 String H = scanner.next();
+						 String h = scanner.next();
 
 						 while (true) {
-						     if (H.equalsIgnoreCase("yes")) {
+						     if (h.equalsIgnoreCase("yes")) {
 						         balcony = true;
 						         break;
-						     } else if (H.equalsIgnoreCase("no")) {
+						     } else if (h.equalsIgnoreCase("no")) {
 						         balcony = false;
 						         break;
 						     } else {
 						    	 logger.info("Invalid input. Please enter 'yes' or 'no':");
-						         H = scanner.next();
+						         h = scanner.next();
 						     }
 						 }
 					 
@@ -965,7 +969,7 @@ public class OWNER {
 	 
 	 
 	 public void setNumFloor(int floorNumber) {
-	        this.numFloor = floorNumber;
+	        numFloor = floorNumber;
 	    }
 	 
 	 
