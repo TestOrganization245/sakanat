@@ -367,24 +367,23 @@ public class OWNER {
 	        }
 	}
 	
-	 public boolean viewResidences() {
-		 logger.info("\n");
-		 logger.info("******** Viewing residences of information ...");
-	        if(res.equals(null)) {
-	        	return false;
-	        }else {
-	        	 for (int i = 0; i < res.size(); i++) {
-	 	            Residence rr = res.get(i);
-	 	           logger.info( "Location: " + rr.getLocation() + ", Services: " + rr.getServices() + ", Monthly Rent: " + rr.getMonthlyRent() +
-	                 ", Inclusive: " + rr.isInclusive() + ", Contact Info: " + rr.getContactInfo() + ", OwnerID: " + rr.getidowner()+ ", Floornum: " + rr.getNumFloors());
-	 	            
-	 	        }
-	 	        return true;
+	public boolean viewResidences() {
+	    logger.info("\n");
+	    logger.info("******** Viewing residences of information ...");
+	    
+	    if (res != null && !res.isEmpty()) {
+	        for (int i = 0; i < res.size(); i++) {
+	            Residence rr = res.get(i);
+	            logger.info("Location: " + rr.getLocation() + ", Services: " + rr.getServices() +
+	                        ", Monthly Rent: " + rr.getMonthlyRent() + ", Inclusive: " + rr.isInclusive() +
+	                        ", Contact Info: " + rr.getContactInfo() + ", OwnerID: " + rr.getidowner() +
+	                        ", Floornum: " + rr.getNumFloors());
 	        }
-	       
+	        return true;
+	    } else {
+	        return false;
 	    }
-	
-	
+	}
 	
 	
 	
