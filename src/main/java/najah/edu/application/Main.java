@@ -13,7 +13,7 @@ public class Main {
     private static int m;
     private static int choice;
     private static String h;
-    static Adminstrator adm=new Adminstrator();
+   public  static Adminstrator adm=new Adminstrator();
     private static boolean cHECK=false;
     private List<String> expectedOptions;
     private static List<String> residences;
@@ -83,39 +83,47 @@ public static void main(String args[]) {
  
  
  else if(login.getT()) {
-	 t.printTenant();
-	 Scanner scanner= new Scanner(System.in);
- 	m=scanner.nextInt();
- 	if(m==1) {
- 		logger.info("\n\n\n");
- 		
- 	t.View();
-	 t.housesDetailes(login.returnEmail());
-	 cHECK=true;
-	 continue;
- 	}
- 	else if(m ==2) {
- 		t.viewFurn(login.returnEmail());
- 		cHECK=true;
- 		 continue;
- 	}
+	 processTenant();
 	 
  }
  
  
  else if(login.getD()) {
-	 adm.printMenu();
-	 Scanner scanner = new Scanner(System.in);
-		int c = scanner.nextInt();
-		adm.checkk(c);
+	 processAdministrator();
  }
  
  else
  {
-	 
+	 logger.info("nooo");
  }
  
  
  
 	}
-}}
+	
+}
+private static void processAdministrator() {
+    adm.printMenu();
+    Scanner scanner = new Scanner(System.in);
+    int c = scanner.nextInt();
+    adm.checkk(c);
+}
+
+private static void processTenant() {
+    t.printTenant();
+    Scanner scanner = new Scanner(System.in);
+    m = scanner.nextInt();
+
+    if (m == 1) {
+        logger.info("\n\n\n");
+        t.View();
+        t.housesDetailes(login.returnEmail());
+        cHECK = true;
+    } else if (m == 2) {
+        t.viewFurn(login.returnEmail());
+        cHECK = true;
+    }
+}
+
+
+}
