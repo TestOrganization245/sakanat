@@ -61,7 +61,7 @@ class Userr {
 public class ArrayLists {
 
 	
-    public static List<Userr> userList =new ArrayList<Userr>(); ;
+    public static List<Userr> userList =new ArrayList<Userr>(); 
     private boolean loggedIn;
     private String welcomeMessage;
     private Scanner scanner;
