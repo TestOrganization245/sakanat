@@ -189,7 +189,7 @@ public class ownerr {
 	@Then("the owner should be able to select a floor {string} for the selected residence {string}")
 	public void theOwnerShouldBeAbleToSelectAFloorForTheSelectedResidence(String floorNumber, String residenceId) {
 	    int expectedFloorNumber = Integer.parseInt(floorNumber);
-	    int actualFloorNumber = o.getNumFloor();
+	    int actualFloorNumber = o.getNumoor();
 	    System.out.println("expectedFloorNumber: "+ expectedFloorNumber);
 	    System.out.println("actualFloorNumber: "+ actualFloorNumber);
 
@@ -219,7 +219,7 @@ public class ownerr {
 	    // Write code here that turns the phrase above into concrete actions
 	  //  throw new io.cucumber.java.PendingException();
 		  String selectedResidenceId = o.getSelectedResidenceId();
-	        int selectedFloorNumber = o.getNumFloor();
+	        int selectedFloorNumber = o.getNumoor();
 	}
 
 
