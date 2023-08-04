@@ -6,12 +6,12 @@ import java.util.logging.Logger;
 
 public class Adminstrator {
    static  OWNER yy = new OWNER();
-   public int v;
+  private static  int v;
   static Logger logger = Logger.getLogger(Adminstrator.class.getName());
   private static final Scanner s  = new Scanner(System.in); 
-   public Tenant user=new Tenant();
-   public List<House> userlist= user.lisH();
-   public List<Furn> furnn= user.addFurnn();
+   private static  Tenant user=new Tenant();
+   private static  List<House> userlist= user.lisH();
+   private static List<Furn> furnn= user.addFurnn();
 	public void printMenu() {
 		logger.info("****** Hello Adminstrater!!!!!!");
 		logger.info("You have the following available options to see:\n1. Furniture advertisment requests\n2. Available reservations\n3. Apartments requests");
@@ -20,7 +20,6 @@ public class Adminstrator {
 	
 	public void checkk(int x) {
 		if(x==1) { 
-			
 			furnn= user.addFurnn();
 			logger.info("The available furniture requests are :"+ "\n");
 			for(int i=0;i<furnn.size();i++) {
@@ -37,28 +36,26 @@ public class Adminstrator {
 			user.printFurn();
 			logger.info("\n");
 			
-			
 		}
 		else if(x==2) {
 			logger.info("==== Reserved Houses :");
-			int Z=1;
+			int z=1;
 			for(int i=0;i<userlist.size()/2;i++) {
-	            if (userlist.get(i).getReserved()==true ) {
-	            	logger.info(String.format("- House %d", Z));
+	            if (userlist.get(i).getReserved() ) {
+	            	logger.info(String.format("- House %d", z));
 	            	logger.info(userlist.get(i).getPicLink()+"\n"+userlist.get(i).getLocation()+"\n"+userlist.get(i).getservices());
 	            	logger.info("\n");
 
-	           Z++;}
+	           z++;}
 		}
 			logger.info("==== Unreserved Houses :");
-			 Z=1;
+			 z=1;
 			 for(int i=0;i<userlist.size()/2;i++) {
-		            if (userlist.get(i).getReserved()==false ) {
-		            	logger.info(String.format("- House %d", Z));
+		            if (!(userlist.get(i).getReserved()) ) {
+		            	logger.info(String.format("- House %d", z));
 		            	logger.info(userlist.get(i).getPicLink()+"\n"+userlist.get(i).getLocation()+"\n"+userlist.get(i).getservices());
 		            	logger.info("\n");
-
-		           Z++;}
+		           z++;}
 			 }
 		}
 		if(x==3) {
