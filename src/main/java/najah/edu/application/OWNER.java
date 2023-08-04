@@ -167,7 +167,6 @@ public class OWNER {
 	 Scanner ss4 = new Scanner(System.in);
 	 private List<floor> floorr = new ArrayList<floor>();
 
-	// private List<User> tenant = new ArrayList<User>();
      
 	 private List<Residence> res = new ArrayList<Residence>();
 	
@@ -613,9 +612,9 @@ public class OWNER {
 	    	String ee;
 	    ee = scannerr.next();
 	    if(ee.equals("Y")) {
-          int s = floor;
+          int st = floor;
           logger.info("menu of floors in recidence:: \n");
-	    	for(int i =1; i<= s ; i++) {
+	    	for(int i =1; i<= st ; i++) {
 		    	
 	    		logger.info("floor " + i + "\n");
 		    	
@@ -687,7 +686,6 @@ public class OWNER {
     		
     		
     		
-    		ArrayList<apartment> apart = getapartmentinflooriselected(idfloorselect);
     		setAppartmentToFloor();    		
     		
     	
@@ -702,9 +700,9 @@ public class OWNER {
 	public ArrayList<apartment> getapartmentinflooriselected(int floorId) {
 	    ArrayList<apartment> apartments = new ArrayList<apartment>();
 
-	    for (apartment apartment : ap) {
-	        if (apartment.getFloorId() == floorId) {
-	            apartments.add(apartment);
+	    for (apartment apartmenttt : ap) {
+	        if (apartmenttt.getFloorId() == floorId) {
+	            apartments.add(apartmenttt);
 	        }
 	    }
 
@@ -724,7 +722,7 @@ public class OWNER {
 	
 	
 	public void saveToFile(String filePath, apartment apartment) {
-        String applicationDetails = NNewselectres(apartment);
+        String applicationDetails = nnewselectres(apartment);
         PrintWriter writer = null;
         try {
             writer = new PrintWriter(new FileWriter(filePath, true));
@@ -821,7 +819,7 @@ public class OWNER {
 	
 	
 	
-	public String NNewselectres(apartment a) {
+	public String nnewselectres(apartment a) {
 		 StringBuilder result = new StringBuilder();
 		    result.append("residence ID: ").append(a.getres()).append("\n");
 		    result.append("Apartment ID: ").append(a.getId()).append("\n");
