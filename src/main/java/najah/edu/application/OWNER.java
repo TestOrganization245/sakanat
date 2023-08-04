@@ -889,19 +889,21 @@ public class OWNER {
 		            residenceMenu.add(line); 
 		        }
 		    } catch (IOException e) {
-		        e.printStackTrace();
+		        logger.log(Level.SEVERE, "An error occurred:", e);
 		    } finally {
 		        if (reader != null) {
 		            try {
 		                reader.close();
 		            } catch (IOException e) {
-		                e.printStackTrace();
+		                logger.log(Level.SEVERE, "Error closing reader:", e);
 		            }
 		        }
 		    }
 		    this.residences = residenceMenu;
 		    return residences;
 		}
+	 
+	 
 	 public static  String selectedResidenceId;
 	    public static int numFloor; 
 
