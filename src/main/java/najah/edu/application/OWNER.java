@@ -879,7 +879,7 @@ public class OWNER {
 	 
 	 
 	 
-	 public List<String> residenceMenu(String filePath) {
+	 public static List<String> residenceMenu(String filePath) {
 		    List<String> residenceMenu = new ArrayList<String>();
 		    BufferedReader reader = null;
 		    try {
@@ -899,7 +899,7 @@ public class OWNER {
 		            }
 		        }
 		    }
-		    this.residences = residenceMenu;
+		   residences = residenceMenu;
 		    return residences;
 		}
 	 
@@ -907,7 +907,7 @@ public class OWNER {
 	 public static  String selectedResidenceId;
 	    public static int numFloor; 
 
-	    public boolean selectIdRes(String residenceId) {
+	    public static boolean selectIdRes(String residenceId) {
 	        for (String residenceInfo : residences) {
 	            String[] residenceData = residenceInfo.split(", ");
 	            String idStr = residenceData[residenceData.length - 1];
