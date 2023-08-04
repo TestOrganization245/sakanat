@@ -7,8 +7,8 @@ import java.util.logging.Logger;
 public class Adminstrator {
    static  OWNER yy = new OWNER();
    public int v;
-   Logger logger = Logger.getLogger(Adminstrator.class.getName());
-   Scanner s  = new Scanner(System.in); 
+  static Logger logger = Logger.getLogger(Adminstrator.class.getName());
+  private static final Scanner s  = new Scanner(System.in); 
    public Tenant user=new Tenant();
    public List<House> userlist=user.lisH();
    public List<Furn> furnn= user.addFurnn();
@@ -65,7 +65,7 @@ public class Adminstrator {
 			logger.info("THE LIST OF information about apartment to accept from admin:\n");
 			logger.info(yy.newapplication());
 
-			if(yy.newapplication().equals(null) ) {
+			if(yy.newapplication() == null ) {
 				logger.info("NOT apartment to adding *****");
 
 		}
