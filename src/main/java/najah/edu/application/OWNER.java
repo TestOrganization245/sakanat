@@ -881,18 +881,24 @@ public class OWNER {
 	 
 	 public List<String> residenceMenu(String filePath) {
 		    List<String> residenceMenu = new ArrayList<String>();
-
+		    BufferedReader reader = null;
 		    try {
-		        BufferedReader reader = new BufferedReader(new FileReader(filePath));
+		        reader = new BufferedReader(new FileReader(filePath));
 		        String line;
 		        while ((line = reader.readLine()) != null) {
 		            residenceMenu.add(line); 
 		        }
-		        reader.close();
 		    } catch (IOException e) {
 		        e.printStackTrace();
+		    } finally {
+		        if (reader != null) {
+		            try {
+		                reader.close();
+		            } catch (IOException e) {
+		                e.printStackTrace();
+		            }
+		        }
 		    }
-
 		    this.residences = residenceMenu;
 		    return residences;
 		}
