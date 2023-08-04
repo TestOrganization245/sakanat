@@ -23,7 +23,7 @@ import java.util.logging.Logger;
     private int numBathrooms;
     private int numBedrooms;
     private boolean hasBalcony;
-    private boolean Reserved;
+    private boolean reserved;
     private int idres;
 
     
@@ -57,7 +57,7 @@ import java.util.logging.Logger;
     }
     
     public boolean getRR() {
-        return Reserved;
+        return reserved;
     }
 
     public int getFloorId() {
@@ -148,10 +148,10 @@ public class OWNER {
 	
 	
 	 String residenceId;
-	public static List<apartment> newapp = new ArrayList<apartment>();
+	private static List<apartment> newapp = new ArrayList<apartment>();
 
-	public static int iddres;
-	public static int idsamalll = -1;
+	private static int iddres;
+	private static int idsamalll = -1;
 	Tenant o = new Tenant() ;
 	 private List<apartment> apartment = new ArrayList<apartment>();
      Logger logger = Logger.getLogger(OWNER.class.getName());
@@ -168,8 +168,8 @@ public class OWNER {
 	
 	 private List<apartment> app = new ArrayList<apartment>();
 
-	 public static List<String> residences = new ArrayList<String>();
-	 public static List<String> residencesList = new ArrayList<String>();
+	 private static List<String> residences = new ArrayList<String>();
+	 private static List<String> residencesList = new ArrayList<String>();
 
 	 private List<String> viewwwhouse = new ArrayList<String>();
 	    private List<String> availableOptions = new ArrayList<String>();
