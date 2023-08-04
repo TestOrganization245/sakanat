@@ -7,18 +7,17 @@ import java.util.logging.Logger;
 public class Main {
 	private static String flag;
     private static OWNER o ;
-	private static Tenant T=new Tenant();
+	private static Tenant t =new Tenant();
     private static int rr;
     private static String mail;
-    private static int M;
+    private static int m;
     private static int choice;
     private static String h;
     static Adminstrator adm=new Adminstrator();
-    public static boolean pp ;
-    private static boolean CHECK=false;
+    private static boolean cHECK=false;
     private List<String> expectedOptions;
     private static List<String> residences;
-   static // private List<floor> floor;
+   static 
     Scanner scanner = new Scanner(System.in);
    
   private static Logger logger = Logger.getLogger(Main.class.getName());
@@ -29,8 +28,8 @@ public static void main(String args[]) {
 	mail=login.returnEmail();
 	 login.run();
 	while(true) {
-		if(CHECK) {
-			CHECK=false;
+		if(cHECK) {
+			cHECK=false;
 			 login.run();
 		}
 		
@@ -53,7 +52,8 @@ public static void main(String args[]) {
 		logger.info("OK");
 		 }
 	  else {
-		  logger.info("You have entered a mistaken choice >>.."+ rr);
+		  logger.info("You have entered a mistaken choice >>..");
+		  
 		}
 	  logger.info("Would you like to \n1. log out \n2. go back to the main menu?\n");
 	  choice=scanner.nextInt();
@@ -62,15 +62,14 @@ public static void main(String args[]) {
 		 h=scanner.nextLine();
 		 h=scanner.nextLine();
 		  if(h.equalsIgnoreCase("yes")) {
-			  CHECK=true;
+			  cHECK=true;
 		  break;
 		  
 		  }
 	  }
 	  else if(choice==2) {
-		  logger.info("\n");
-		  logger.info("\n");
-		  logger.info("\n");
+		  logger.info("\n\n\n");
+		 
 		  continue;
 	  }
 	  else {
@@ -84,21 +83,20 @@ public static void main(String args[]) {
  
  
  else if(login.getT()) {
-	 T.printTenant();
+	 t.printTenant();
 	 Scanner scanner= new Scanner(System.in);
- 	M=scanner.nextInt();
- 	if(M==1) {
- 		logger.info("\n");
- 		logger.info("\n");
- 		logger.info("\n");
- 	T.View();
-	 T.housesDetailes(login.returnEmail());
-	 CHECK=true;
+ 	m=scanner.nextInt();
+ 	if(m==1) {
+ 		logger.info("\n\n\n");
+ 		
+ 	t.View();
+	 t.housesDetailes(login.returnEmail());
+	 cHECK=true;
 	 continue;
  	}
- 	else if(M==2) {
- 		T.viewFurn(login.returnEmail());
- 		CHECK=true;
+ 	else if(m ==2) {
+ 		t.viewFurn(login.returnEmail());
+ 		cHECK=true;
  		 continue;
  	}
 	 
