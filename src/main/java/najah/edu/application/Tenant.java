@@ -1,42 +1,34 @@
 package najah.edu.application;
-
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.logging.Logger;
-
-
-
 class User {
-	private String Name;
+	private String name;
     private String email;
     private String password;
 	private String type;
-	private String ID;
+	private String iD;
 	private int age;
-	private String Job;
-	private String FurnID;
-
-    public User(String Name,String email, String password , String type, String ID, int age, String Job, String FurnID) {
-        this.Name=Name;
+	private String job;
+	private String furnID;
+    public User(String name,String email, String password , String type, String iD, int age, String job, String furnID) {
+        this.name=name;
     	this.email = email;
         this.password = password;
         this.type = type;
-        this.ID=ID;
+        this.iD=iD;
         this.age=age;
-        this.Job=Job;
-        this.FurnID=FurnID;
+        this.job=job;
+        this.furnID=furnID;
         
     }
-
     public String getName() {
-        return Name;
+        return name;
     }
     public String getID() {
-        return ID;
+        return iD;
     }
     
     public String getEmail() {
@@ -44,13 +36,12 @@ class User {
     }
     
     public String getJob() {
-        return Job;
+        return job;
     }
     
     public int getage() {
         return age;
     }
-
     public String getPassword() {
         return password;
     }
@@ -60,46 +51,41 @@ class User {
     }
     
     public String furnID() {
-        return FurnID;
+        return furnID;
     }
 }
-
-
 class House {
-    private String PicLink;
+    private String picLink;
     private double price;
 	private String location;
 	private String services;
-	private String ID;
-	private String Type;
-	private boolean Reserved;
-
-    public House(String PicLink, double price , String location, String services, String ID,String Type,boolean Reserved) {
-        this.PicLink=PicLink;
+	private String iD;
+	private String type;
+	private boolean reserved;
+    public House(String picLink, double price , String location, String services, String iD,String type,boolean reserved) {
+        this.picLink=picLink;
         this.price=price;
         this.location=location;
         this.services=services;
-        this.ID=ID;
-        this.Type=Type;
-        this.Reserved=Reserved;
+        this.iD=iD;
+        this.type=type;
+        this.reserved=reserved;
     }
-
-    public void setReserved(boolean Q) {
-        Reserved=Q;
+    public void setReserved(boolean q) {
+        reserved=q;
     }
     
     public boolean getReserved() {
-        return Reserved;
+        return reserved;
     }
     public String getPicLink() {
-        return PicLink;
+        return picLink;
     }
-
     public String getType() {
-        return Type;
+        return type;
     }
     public String getID() {
-        return ID;
+        return iD;
     }
     
     public String getLocation() {
@@ -112,8 +98,6 @@ class House {
         return price;
     }
 }
-
-
  class Furn{
 	private String pic;
 	private double price;
@@ -140,7 +124,7 @@ class House {
 	    }
 	 
 }
-
+ 
  
  
  
