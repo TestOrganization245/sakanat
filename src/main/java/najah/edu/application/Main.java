@@ -116,7 +116,7 @@ private static void processTenant() {
 
     if (m == 1) {
         logger.info("\n\n\n");
-        t.View();
+        t.vView();
         t.housesDetailes(login.returnEmail());
         cHECK = true;
     } else if (m == 2) {

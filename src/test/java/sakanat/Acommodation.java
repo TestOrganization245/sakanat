@@ -37,7 +37,7 @@ public class Acommodation {
 	public void theAccomodationProcessMustSucceed() {
 	    // Write code here that turns the phrase above into concrete actions
 	   // throw new io.cucumber.java.PendingException();
-		Assertions.assertTrue(Check==T.CheckAccomodation(1));
+		Assertions.assertTrue(Check==T.checkAccomodation(1));
 		
 	}
 	
@@ -59,7 +59,7 @@ public class Acommodation {
 	@Then("The accomodation process must fail because it's already fully reserved")
 	public void theAccomodationProcessMustFailBecauseItSAlreadyFullyReserved() {
 	    // Write code here that turns the phrase above into concrete actions
-		Assertions.assertFalse(Check==T.CheckAccomodation(4));
+		Assertions.assertFalse(Check==T.checkAccomodation(4));
 
 	}
 
