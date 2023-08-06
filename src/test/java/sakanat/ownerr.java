@@ -58,7 +58,18 @@ public class ownerr {
 	    	System.out.print("please try now to choise the 2(choise 2) to view house \n");
 	    	o.owner();
 	    	o.addNewResidence();
-	    	
+	    	boolean b = false;
+           List<String> q = o.getAvailableOptions();
+           if(q!= null) {
+        	   b= true ;
+        	   Assertions.assertTrue( b);
+        	    
+
+           }
+           else {
+        	   Assertions.assertFalse(b);
+
+           }
 	    }
 	   
 	    
