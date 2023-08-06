@@ -90,25 +90,46 @@ public class ownerr {
 	    	o.isResidenceSelected();
 	    	////
 	    	System.out.print("when newapp is empty \n The condition is pass \n ");
-	    	o.newapplication();
+	    String j =	o.newapplication();
 	    	System.out.print("With new app array contain data the function to pass (check the array not empty) \n");
 	    	o.aa(newappp);
 	    	o.newapplication();
 	    	//
+	    	boolean s = false;
 	    	System.out.print("return to make function approve \n");
 	    	System.out.print("so for example select 6\n");
 	    	o.Approval();
+	    	if (j != null ) {
+	    		s = true;
+	        	   Assertions.assertTrue( s);
+
+	    	}
+	    	else {
+	        	   Assertions.assertFalse( s);
+
+	    	}
+	    	
 	    }
 	    
 	    @Test
 	    public void fileTest() {
 	    	System.out.print("The file not exixts testing this :::");
+	    	String l = "C:\\Users\\Lenovo\\eclipse-workspace\\sakanat\\datahouse";
+	    	boolean b = false;
+	    	
 	    String	file = "text.txt";
 	    o.readFileee(file);
 	    o.residenceMenu(file);
 	    o.readResidencesFromFile(file);
 	    o.saveToFile(file, newapp);
+if(file == l ) {
+	b = true ;
+	   Assertions.assertTrue( b);
 
+}else {
+	   Assertions.assertFalse( b);
+
+}
 	    }
 	    
 	    
@@ -116,12 +137,20 @@ public class ownerr {
 	    @Test
 	    public void printMenu() {
 	    	o.print();
-	    	//int o =6;
 	    	
+	    	boolean b = false;
 	    	int a =6;
 	    	
 	    	int u = o.zget();
 	    	o.viewResidenceDetailsss(a ,"C:\\Users\\Lenovo\\eclipse-workspace\\sakanat\\datahouse" );
+	    	if(a == 6) {b = true;
+	        	   Assertions.assertTrue( b);
+
+	    	}
+	    	else {
+	        	   Assertions.assertFalse( b);
+
+	    	}
 	    }
 	    
 	    
