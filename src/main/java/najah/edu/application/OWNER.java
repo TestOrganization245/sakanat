@@ -17,7 +17,10 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import najah.edu.application.apartment;
 
+
+/*
  class apartment {
     private int id;
     private static int nextId = 1;
@@ -88,7 +91,7 @@ import java.util.logging.Logger;
 
 }
 
-
+*/
 class Residence {
     private static int nextId = 1;
 
