@@ -150,6 +150,12 @@ class Residence {
 }
 public class OWNER {
 	
+	//test
+	
+	 static int ibtisam =6;
+	//
+	
+	
 	private static  Tenant tanentt = new Tenant();
 	   private static final List<User> userlist= tanentt.liss();
 
@@ -188,6 +194,11 @@ public class OWNER {
 	    private int x = 0;
 	    private String photoFilePath1; 
 	    
+	    
+	  
+	    
+	    
+	    
 	   public OWNER() {
 		   apartment = new ArrayList<apartment>();
 		  
@@ -198,8 +209,6 @@ public class OWNER {
 		  
 
 		   app.add(new apartment(1 , 5 , 7, 9 ,false));
-		   
-		   
 		   
 		   availableOptions = new ArrayList<String>();
 		 
@@ -220,7 +229,33 @@ public class OWNER {
 		    }
 		}
 	   
-	
+	   public void print() {
+		    logger.info("Welcome OWNER To Test Your Application ...");
+		    logger.info("In this function, you can:");
+		    logger.info("- Test if your residences have any floors");
+		    logger.info("- Check if floors contain apartments");
+		    logger.info("- Verify if your file is empty from residence information or not");
+		    
+		    // Additional instructions
+		    logger.info("\nInstructions:");
+		    logger.info("- Follow the prompts to test different aspects of your application.");
+		    logger.info("- Make sure to have a sample file with residence information ready for testing.");
+		    logger.info("- Use the provided options to simulate various scenarios.");
+		    logger.info("- Examine the output to ensure your application is functioning correctly.");
+		    
+		    // Conclusion
+		    logger.info("\nHave fun testing your application!");
+		    logger.info("**************************************");
+		    logger.info("TESTING SCENARIO: <Scenario Name>");
+
+		    logger.info("<Step 1>");
+		    logger.info("ADD HOUSE");
+		    logger.info("<Step 2>");
+		    logger.info("View ****");
+		    // Add more steps as needed
+
+		    logger.info("**************************************");
+		}
 	   
 	public List<String> owner(){
 		
@@ -681,7 +716,7 @@ public class OWNER {
 		            }
 
 		            int currentResidenceId = Integer.parseInt(dataLines[0].split(": ")[1]);
-		            
+		           // ibtisam = currentResidenceId;
 		            if (currentResidenceId == residenceId) {
 		                int apartmentId = Integer.parseInt(dataLines[1].split(": ")[1]);
 		                int floorId = Integer.parseInt(dataLines[2].split(": ")[1]);
@@ -746,7 +781,10 @@ public class OWNER {
 	        return result.toString();
 	    }
 	}
-	
+	public List<apartment> aa(List<apartment> a) {
+		newapp= a;
+		return newapp;
+	}
 	
 	
 	public String nnewselectres(apartment a) {
@@ -943,5 +981,8 @@ public class OWNER {
 		    }
 		    return null; 
 	    }
-	 
+	 ///test
+	  public int zget() {
+		  return ibtisam;
+	  }
 }

@@ -1,8 +1,10 @@
 package sakanat;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -16,13 +18,21 @@ import java.util.regex.Pattern;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.runner.RunWith;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import najah.edu.application.OWNER;
+import najah.edu.application.apartment;
+
 import org.junit.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
+
+
 
 public class ownerr {
 	//io.cucumber.junit.UndefinedStepException: The step 'I Am on owner page' and 2 other step(s) are undefined.
@@ -32,10 +42,80 @@ public class ownerr {
 	    private boolean fileExists;
 ///
 	    List<String> expectedResidences = new ArrayList<String>(); // Replace with your expected values
+	    private apartment newapp = new apartment(9 , 1, 2, 0, false, 7);
+		private static List<apartment> newappp = new ArrayList<apartment>();
 
-	    
+	 //   apartment2.add(new apartment());
 	    //*
 	    boolean y = false;
+	    
+	    ///2222owner fun
+	    @Test
+		   public void owwn() {
+	    	System.out.print("senario to testing the result if i need add house or view ???");
+	    	o.owner();
+	    	System.out.print("now after test function add house ... \n");
+	    	System.out.print("please try now to choise the 2(choise 2) to view house \n");
+	    	o.owner();
+	    	o.addNewResidence();
+	    	
+	    }
+	   
+	    
+	    ////222 
+	    
+	    @Test
+		   public void apar() {
+	    	newappp.add(new apartment(9,1, 9, 5, false, 6));
+	    	System.out.print("senario to testing apartment functions or approve apartment number if he exists or not  ???");
+	    	//apartment(int id, int floorId, int bath, int bed, boolean y, int idd )
+	    	//newapp.add(new apartment(9,1, 9, 5, false, 6));
+	    	o.Approval();
+	    	
+	    	o.nnewselectres(newapp);
+	    	System.out.print(o.nnewselectres(newapp));
+	    	//////
+	    	o.getNewAppId();
+	    	o.isResidenceSelected();
+	    	////
+	    	System.out.print("when newapp is empty \n The condition is pass \n ");
+	    	o.newapplication();
+	    	System.out.print("With new app array contain data the function to pass (check the array not empty) \n");
+	    	o.aa(newappp);
+	    	o.newapplication();
+	    	//
+	    	System.out.print("return to make function approve \n");
+	    	System.out.print("so for example select 6\n");
+	    	o.Approval();
+	    }
+	    
+	    @Test
+	    public void filetest() {
+	    	System.out.print("The file not exixts testing this :::");
+	    String	file = "text.txt";
+	    o.readFileee(file);
+	    o.residenceMenu(file);
+	    o.readResidencesFromFile(file);
+	    o.saveToFile(file, newapp);
+
+	    }
+	    
+	    
+	  
+	    @Test
+	    public void printme() {
+	    	o.print();
+	    	//int o =6;
+	    	
+	    	int a =6;
+	    	
+	    	int u = o.zget();
+	    	o.viewResidenceDetailsss(a ,"C:\\Users\\Lenovo\\eclipse-workspace\\sakanat\\datahouse" );
+	    }
+	    
+	    
+	    
+	    ////
 	    @Test
 	   public void testSaveToFile() throws IOException {
 	    	
@@ -55,11 +135,11 @@ public class ownerr {
 	    		System.out.print(")))))))))))))))))))))))))))))))))))))))))))))********************");
 	    		Assertions.assertTrue(y);
 	    	}
-	    	o.Approval();
-	    	o.setAppartmentToFloor();
-	    	o.getapartmentinflooriselected(1);
-	    	o.buildfloorofresidence(1, 6);
-	    	o.addNewResidence();
+	    //	o.Approval();
+	    //	o.setAppartmentToFloor();
+	   // 	o.getapartmentinflooriselected(1);
+	    //	o.buildfloorofresidence(1, 6);
+	    	
 	        // Delete the test file, close resources, etc.
 	    }
 	    
@@ -93,8 +173,8 @@ public class ownerr {
 	public void iAmOnOwnerPage() {
 		System.out.print("TESTING OF SCENARIO :: add recidense for rent \n");
 		 o = new OWNER();
-		o.owner();
-		o.view();
+	//	o.owner();
+	//	o.view();
 	
 	}
 	@When("i add the details the recidense")
