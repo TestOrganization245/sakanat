@@ -51,7 +51,7 @@ public class ownerr {
 	    
 	    ///2222owner fun
 	    @Test
-		   public void owwn() {
+		   public void pure() {
 	    	System.out.print("senario to testing the result if i need add house or view ???");
 	    	o.owner();
 	    	System.out.print("now after test function add house ... \n");
@@ -65,7 +65,7 @@ public class ownerr {
 	    ////222 
 	    
 	    @Test
-		   public void apar() {
+		   public void art() {
 	    	newappp.add(new apartment(9,1, 9, 5, false, 6));
 	    	System.out.print("senario to testing apartment functions or approve apartment number if he exists or not  ???");
 	    	//apartment(int id, int floorId, int bath, int bed, boolean y, int idd )
@@ -90,7 +90,7 @@ public class ownerr {
 	    }
 	    
 	    @Test
-	    public void filetest() {
+	    public void fileTest() {
 	    	System.out.print("The file not exixts testing this :::");
 	    String	file = "text.txt";
 	    o.readFileee(file);
@@ -103,7 +103,7 @@ public class ownerr {
 	    
 	  
 	    @Test
-	    public void printme() {
+	    public void printMenu() {
 	    	o.print();
 	    	//int o =6;
 	    	
