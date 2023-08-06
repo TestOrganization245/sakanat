@@ -1,8 +1,17 @@
 package sakanat;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.mock;
+
+import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.regex.Pattern;
 
 import org.junit.jupiter.api.Assertions;
@@ -12,6 +21,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import najah.edu.application.OWNER;
+import org.junit.Test;
+import org.mockito.Mockito;
 
 public class ownerr {
 	//io.cucumber.junit.UndefinedStepException: The step 'I Am on owner page' and 2 other step(s) are undefined.
@@ -20,7 +31,48 @@ public class ownerr {
 	 private List<String> expectedOptions;
 	    private boolean fileExists;
 ///
-	     
+	    List<String> expectedResidences = new ArrayList<String>(); // Replace with your expected values
+
+	    
+	    //*
+	    boolean y = false;
+	    @Test
+	   public void testSaveToFile() throws IOException {
+	    	
+	        // Create a mock apartment
+	   //   o.saveToFile(filePath, null);
+	        // Clean up if needed
+	    	String f = "C:\\Users\\Lenovo\\eclipse-workspace\\sakanat\\recidense";
+	   List <String> i =	o.readFileee(f);
+	    	if(i == null) {
+	    	 y = false ;
+	    		System.out.print("((((((((((((((((((((((((((((((((((((((((((((((((((********************");
+
+	    		Assertions.assertFalse(y);
+	    	}
+	    	else {
+	    		y = true;
+	    		System.out.print(")))))))))))))))))))))))))))))))))))))))))))))********************");
+	    		Assertions.assertTrue(y);
+	    	}
+	    	o.Approval();
+	    	o.setAppartmentToFloor();
+	    	o.getapartmentinflooriselected(1);
+	    	o.buildfloorofresidence(1, 6);
+	    	o.addNewResidence();
+	        // Delete the test file, close resources, etc.
+	    }
+	    
+	    
+	    
+	    //*
+	    
+	    
+	    
+	    
+	    
+	    
+	  
 ///	    
 	    private String ResidenceIdS;
 	    private int FloorNumberS;
@@ -36,11 +88,13 @@ public class ownerr {
 	        String filePath = "path_to_residences_file.txt";
 	        residencesList = o.residenceMenu(filePath);
 	    }
+	   
 	@Given("I Am on owner page")
 	public void iAmOnOwnerPage() {
 		System.out.print("TESTING OF SCENARIO :: add recidense for rent \n");
 		 o = new OWNER();
-		
+		o.owner();
+		o.view();
 	
 	}
 	@When("i add the details the recidense")
@@ -54,8 +108,10 @@ public class ownerr {
 			Assertions.assertFalse(t);
 		}
 		else {
-			System.out.print(" ADDING RECIDENSE \n");// recidense for rent 
+			
 
+			System.out.print(" ADDING RECIDENSE \n");// recidense for rent 
+		//	o.addhouse();
 			t = true;
 			Assertions.assertTrue(t);
 		}
@@ -150,8 +206,8 @@ public class ownerr {
 		//  String filePath = "C:\\Users\\Lenovo\\eclipse-workspace\\sakanat\\recidense";
 		//o.residenceMenu(filePath);
 		 boolean isResidenceSelected = o.selectIdRes(string);
-		    Assertions.assertTrue(isResidenceSelected);
-		
+		 Assertions.assertTrue(isResidenceSelected);
+		 
 		
 		
 		
@@ -377,6 +433,11 @@ public class ownerr {
 	        	System.out.println("variable back to menu: "+ backtomenu+ "\n");
 	            Assertions.assertTrue(backtomenu);
 	        }
+		  
+		//  o.newapplication();
+		  
+		  
+		  
 	    }
 	    // Write code here that turns the phrase above into concrete actions
 	   //throw new io.cucumber.java.PendingException();

@@ -217,8 +217,7 @@ public class OWNER {
 		    }
 		}
 	   
-	   
-	 
+	
 	   
 	public List<String> owner(){
 		
@@ -607,41 +606,9 @@ public class OWNER {
 	    }
 	  
 	   
-	    public void gett(int floor) {
-	    	logger.info("Do you want to view the floors information?");
-	    	String ee;
-	    ee = scannerr.next();
-	    if(ee.equals("Y")) {
-          int st = floor;
-          logger.info("menu of floors in recidence:: \n");
-	    	for(int i =1; i<= st ; i++) {
-		    	
-	    		logger.info("floor " + i + "\n");
-		    	
-
-	    	}
-	    	
-	    }else{
-	    int z =	view();
-	    gett(z);
-	    logger.info("not --------");
-    	}
-	    }
+	  
 	    
-	    public List<floor> getfloor(int floor) {
-	    	 List<floor> floors = new ArrayList<floor>();
-
-		      for(floor f : floorr) {
-		    	  if(f.getidf() == floor) {
-		    		  floors.add(f);
-		    		
-		    	  }
-		      }
-		        return floors;
-	    	
-	    	
-	    	
-	    }
+	  
 	    
 	    public List<floor> buildfloorofresidence(int numFloors, int residenceId) {
 	        List<floor> floors = new ArrayList<floor>();
@@ -653,48 +620,7 @@ public class OWNER {
 
 	        return floors;
 	    }
-	public int selectfloorfrommenu() {
-		int yy ;
-		int idfloorselect =0;
-	    logger.info("Enter the floor number to view details:");
-        floor select = null;
-		yy = ss4.nextInt();
-		
-		 for (floor floor : floorr) {
-		        if (floor.getidf() == yy) {
-		    		
-                      select = floor;
-		        }
-		        
-		    }
-		if(select != null) {
-			logger.info("floor Id:"+ select.getidf());
-			logger.info("floor of residence id:" + select.getidr());
-    		idfloorselect = select.getidf();
-    		int count =1;
-    		for(int i = 1; i<= ap.size();i++) {
-    			if(ap.get(i-1).getFloorId() == idfloorselect) {
-    				logger.info("\n");
-    				logger.info("APARTMENT "+ count);
-    				logger.info("- Apartment ID :  "+ap.get(i - 1).getId() + "\n" + "- Floor ID :  " + ap.get(i - 1).getFloorId() + "\n" + "- Number Of BathRooms :  " + ap.get(i - 1).getNumBathrooms() + "\n" + "- Number Of BadRooms :  " + ap.get(i - 1).getNumBedrooms() + "\n" + "- Is There A Balcony :  " + ap.get(i - 1).hasBalcony());
-    				count++;
-    				
-    			}
-    		}
-    		count=1;
-    		logger.info("\n");
-    		
-    		
-    		
-    		setAppartmentToFloor();    		
-    		
-    	
-    	
-    		
-    		
-		}
-		return idfloorselect;
-	}
+	
 	
 	
 	public ArrayList<apartment> getapartmentinflooriselected(int floorId) {
@@ -770,6 +696,7 @@ public class OWNER {
 		                value = true;
 		            }
 
+		            
 		            apartmentData.setLength(0);
 		        }
 		    }
@@ -960,19 +887,7 @@ public class OWNER {
 		    return numFloor;
 		}
 	 
-	 public int getNumFloo() {
-	        for (String residenceInfo : residences) {
-	            String[] residenceData = residenceInfo.split(", ");
-	            String idStr = residenceData[residenceData.length - 1];
-	            String id = idStr.substring(idStr.lastIndexOf(" ") + 1).trim();
-
-	            if (id.equals(selectedResidenceId)) {
-	                return Integer.parseInt(residenceData[residenceData.length - 2].split(": ")[1].trim());
-	            }
-	        }
-	        return -1;
-	    }
-	 
+	
 	 
 	 public static void setNumFloor(int floorNumber) {
 	        numFloor = floorNumber;
