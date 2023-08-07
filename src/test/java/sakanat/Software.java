@@ -11,8 +11,8 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features={"Features/login.feature","Features/ownerr.feature", "Features/checkk.feature","Features/viewHousing.feature","Features/AcomodationTest.feature", "Features/admin.feature","Features/FurnitureAdd.feature"},
-    // features="Features/admin.feature",
+		features={"Features/login.feature", "Features/checkk.feature","Features/viewHousing.feature", "Features/admin.feature","Features/FurnitureAdd.feature"},
+    // features="Features/admin.feature","Features/ownerr.feature",
 		plugin= {"summary","html:target/output.html"},
      monochrome=true,
      snippets = SnippetType.CAMELCASE,
