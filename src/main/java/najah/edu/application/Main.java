@@ -16,15 +16,19 @@ public class Main {
     private static String pic;
     private static double price;
     private static String housenum;
+private static String sh = "    =====================================================================";
+private static String ac ="    ============== YOU'VE ACCOMADATED THIS HOUSE SUCCESSFULLY ===========";
+private static String shh="________________________________________________________________________________";
+private static String cp="=============================== CONTROL PANEL ==================================";
 
 	private static int v;
 	private static String flag;
 	private static Tenant t=new Tenant();
     private static int rr;
     private static String mail;
-    private static int M;
-    private static int Choice;
-    private static String H;
+    private static int m;
+    private static int choice;
+    private static String h;
     static Adminstrator adm=new Adminstrator();
     private static boolean pp ;
     private static boolean check=false;
@@ -33,7 +37,7 @@ public class Main {
     Scanner scanner = new Scanner(System.in);
    
    
-	public static Logger logger =  Logger.getLogger(Main.class.getName());
+	 static Logger logger =  Logger.getLogger(Main.class.getName());
   static LOGIN login=new LOGIN();
   
 public static void main(String args[]) {
@@ -56,7 +60,7 @@ logger.info("Password: ");
 		mail=login.returnEmail();
 	}
 	while(true) {
-		if(check==true) {
+		if(check) {
 			check=false;
 			logger.info("Welcome to the Application!");
 			logger.info("Please select an option:");
@@ -77,7 +81,7 @@ logger.info("Password: ");
 			}
 		}
 		
- if(login.getO()==true) {
+ if(login.getO()) {
 	 while(true){
 		 
 	 o = new OWNER();
@@ -99,22 +103,21 @@ logger.info("Password: ");
 		  logger.info("You have entered a mistaken choice >>.."+ rr);
 		}
 	  logger.info("Would you like to \n1. log out \n2. go back to the main menu?\n");
-	  Choice=scanner.nextInt();
-	  if(Choice==1) {
+	  choice=scanner.nextInt();
+	  if(choice==1) {
 		  logger.info("         ********** YOU LOGGED OUT SUCCESSFULLY *********\n- Would you like log in again?");
-		 H=scanner.nextLine();
-		 H=scanner.nextLine();
-		  if(H.equalsIgnoreCase("yes")) {
+		 h=scanner.nextLine();
+		 h=scanner.nextLine();
+		  if(h.equalsIgnoreCase("yes")) {
 			  check=true;
 		  break;
 		  
 		  }
 	  }
-	  else if(Choice==2) {
+	  else if(choice==2) {
 		  logger.info("\n");
 		  logger.info("\n");		  
 		  logger.info("\n");
-		  continue;
 	  }
 	  else {
 		  logger.info("\n");
@@ -126,11 +129,11 @@ logger.info("Password: ");
  }
  
  
- else if(login.getT()==true) {
+ else if(login.getT()) {
 	 
 	t.printTenant();
-	M=scanner.nextInt();
- 	if(M==1) {
+	m=scanner.nextInt();
+ 	if(m==1) {
 		  logger.info("\n");
 		  logger.info("\n");
 		  logger.info("\n");
@@ -164,12 +167,12 @@ logger.info("Password: ");
 	        		continue;
 	        		}
 	        	else if(z==2) {
-	        		logger.info("    =====================================================================");
-	        		logger.info("    ============== YOU'VE ACCOMADATED THIS HOUSE SUCCESSFULLY ===========");
-	        		logger.info("    =====================================================================\n");
-		    		t.printColorText    ("________________________________________________________________________________",ConsoleColor.RED);
-		    		t.printColorText    ("=============================== CONTROL PANEL ==================================",ConsoleColor.GREEN);
-		    		t.printColorText    ("________________________________________________________________________________",ConsoleColor.RED);
+	        		logger.info(sh);
+	        		logger.info(ac);
+	        		logger.info(sh);
+		    		t.printColorText    (shh,ConsoleColor.RED);
+		    		t.printColorText    (cp,ConsoleColor.GREEN);
+		    		t.printColorText    (shh,ConsoleColor.RED);
 		    		logger.info("\n");
 		    		logger.info(mail);
 
@@ -190,12 +193,12 @@ logger.info("Password: ");
 			
 
 	    	else if(y.equalsIgnoreCase("no")) {
-	    		logger.info("    =====================================================================");
-	    		logger.info("    ============== YOU'VE ACCOMADATED THIS HOUSE SUCCESSFULLY ===========");
-	    		logger.info("    =====================================================================\n");
-	    		t.printColorText    ("________________________________________________________________________________",ConsoleColor.RED);
-	    		t.printColorText    ("=============================== CONTROL PANEL ==================================",ConsoleColor.GREEN);
-	    		t.printColorText    ("________________________________________________________________________________",ConsoleColor.RED);
+	    		logger.info(sh);
+        		logger.info(ac);
+        		logger.info(sh);
+	    		t.printColorText    (shh,ConsoleColor.RED);
+	    		t.printColorText    (cp,ConsoleColor.GREEN);
+	    		t.printColorText    (shh,ConsoleColor.RED);
 	    		logger.info("\n");
 	    		t.specifiedData(mail,v);
 	    		logger.info("\n");
@@ -212,12 +215,12 @@ logger.info("Password: ");
 	    	}
 	    }
 	    else if(t.check(v)==false) {
-	    	logger.info("    =====================================================================");
-	    	logger.info("    ============== YOU'VE ACCOMADATED THIS HOUSE SUCCESSFULLY ===========");
-	    	logger.info("    =====================================================================\n");
-    		t.printColorText    ("________________________________________________________________________________\n",ConsoleColor.RED);
-    		t.printColorText    ("=============================== CONTROL PANEL ==================================",ConsoleColor.GREEN);
-    		t.printColorText    ("________________________________________________________________________________",ConsoleColor.RED);
+	    	logger.info(sh);
+    		logger.info(ac);
+    		logger.info(sh);
+    		t.printColorText    (shh,ConsoleColor.RED);
+    		t.printColorText    (cp,ConsoleColor.GREEN);
+    		t.printColorText    (shh,ConsoleColor.RED);
     		logger.info("\n");
     		t.specifiedData(mail,v);
     		logger.info("\n");
@@ -238,7 +241,7 @@ logger.info("Password: ");
  	}
  }
  	
- 	else if(M==2) {
+ 	else if(m==2) {
 
  		String furnID="";
  		logger.info("\n");
