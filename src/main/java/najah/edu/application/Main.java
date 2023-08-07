@@ -170,15 +170,15 @@ logger.info("Password: ");
 	        		logger.info(sh);
 	        		logger.info(ac);
 	        		logger.info(sh);
-		    		t.printColorText    (shh,ConsoleColor.RED);
-		    		t.printColorText    (cp,ConsoleColor.GREEN);
-		    		t.printColorText    (shh,ConsoleColor.RED);
+		    		Tenant.printColorText    (shh,ConsoleColor.RED);
+		    		Tenant.printColorText    (cp,ConsoleColor.GREEN);
+		    		Tenant.printColorText    (shh,ConsoleColor.RED);
 		    		logger.info("\n");
 		    		logger.info(mail);
 
 		    		t.specifiedData(mail, v);
 		    		logger.info("\n");
-		    		t.printColorText    ("________________________________________________________________________________",ConsoleColor.RED);
+		    		Tenant.printColorText    ("________________________________________________________________________________",ConsoleColor.RED);
 		    		logger.info("Would you like to \n1. log out \n2. go back to the main menu?\n");
 		    		  int o =scanner.nextInt();    	
 		    		  if(o==1) {
@@ -196,13 +196,13 @@ logger.info("Password: ");
 	    		logger.info(sh);
         		logger.info(ac);
         		logger.info(sh);
-	    		t.printColorText    (shh,ConsoleColor.RED);
-	    		t.printColorText    (cp,ConsoleColor.GREEN);
-	    		t.printColorText    (shh,ConsoleColor.RED);
+	    		Tenant.printColorText    (shh,ConsoleColor.RED);
+	    		Tenant.printColorText    (cp,ConsoleColor.GREEN);
+	    		Tenant.printColorText    (shh,ConsoleColor.RED);
 	    		logger.info("\n");
 	    		t.specifiedData(mail,v);
 	    		logger.info("\n");
-	    		t.printColorText    ("________________________________________________________________________________",ConsoleColor.RED);
+	    		Tenant.printColorText    ("________________________________________________________________________________",ConsoleColor.RED);
 	    		logger.info("Would you like to \n1. log out \n2. go back to the main menu?\n");
 	    		  int o =scanner.nextInt();    	
 	    		  if(o==1) {
@@ -214,17 +214,17 @@ logger.info("Password: ");
 	    		  }
 	    	}
 	    }
-	    else if(t.check(v)==false) {
+	    else if(!t.check(v)) {
 	    	logger.info(sh);
     		logger.info(ac);
     		logger.info(sh);
-    		t.printColorText    (shh,ConsoleColor.RED);
-    		t.printColorText    (cp,ConsoleColor.GREEN);
-    		t.printColorText    (shh,ConsoleColor.RED);
+    		Tenant.printColorText    (shh,ConsoleColor.RED);
+    		Tenant.printColorText    (cp,ConsoleColor.GREEN);
+    		Tenant.printColorText    (shh,ConsoleColor.RED);
     		logger.info("\n");
     		t.specifiedData(mail,v);
     		logger.info("\n");
-    		t.printColorText    ("________________________________________________________________________________",ConsoleColor.RED);
+    		Tenant.printColorText    ("________________________________________________________________________________",ConsoleColor.RED);
     		logger.info("Would you like to \n1. log out \n2. go back to the main menu?\n");
     		  int o =scanner.nextInt();    	
     		  if(o==1) {
@@ -237,7 +237,6 @@ logger.info("Password: ");
 	}
 	
 	check=true;
-	 continue;
  	}
  }
  	
@@ -265,14 +264,13 @@ logger.info("Password: ");
             
         	t.addFurnn(pic,price,t3bt,furnID);
     		check=true;
-    		 continue;
  	}
  	
  
  }
  
  
- else if(login.getD()==true) {
+ else if(login.getD()) {
 	 logger.info("****** Hello Adminstrater!!!!!!");
 	 logger.info("You have the following available options to see:\n1. Furniture advertisment requests\n2. Available reservations\n3. Apartments requests");
 	 scanner = new Scanner(System.in);
@@ -307,12 +305,8 @@ logger.info("Password: ");
 		
  }
  
- else
- {
-	 
- }
  
  
  
-	}
+	break;}
 }}
