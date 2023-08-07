@@ -736,17 +736,17 @@ public class OWNER {
 		 int y = Integer.parseInt(residenceId);
 		 return y;
 	    }
-    public static  apartment selectedApartment = null;
+     static  apartment selectedApartment = null;
 
 	 public void Approval() {
 		 logger.info("Enter the residence ID of the apartment to approve: ");
 	         residenceId = s.nextLine();
 
-	        for (apartment app : newapp) {
+	        for (apartment appo : newapp) {
 	        	int x = Integer.parseInt(residenceId);
-	        	logger.info("****The residenceId selected: " + x + "\n" + "****The residenceId selected of loop array: "+ app.getres() +"\n");
-	            if (app.getres()== x) {
-	                selectedApartment = app;
+	        	logger.info("****The residenceId selected: " + x + "\n" + "****The residenceId selected of loop array: "+ appo.getres() +"\n");
+	            if (appo.getres()== x) {
+	                selectedApartment = appo;
 	                break;
 	                
 	            }
