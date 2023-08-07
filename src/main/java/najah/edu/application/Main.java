@@ -10,7 +10,7 @@ import najah.edu.application.Tenant.ConsoleColor;
 public class Main {
 	static OWNER o =new OWNER();
     private static List<User> userList;
-    private static ArrayList<House> houses;
+    private static List<House> houses;
     private ArrayList<Furn> furniture;
     private static ArrayList<Furn> newFurniture=new ArrayList<Furn>();
     private static String pic;
@@ -266,6 +266,8 @@ logger.info("Password: ");
     		check=true;
  	}
  	
+ 	
+
  
  }
  
@@ -277,7 +279,28 @@ logger.info("Password: ");
 		int c= scanner.nextInt();
 		
 		if(c==1) {
-			adm.addFurrn();
+			while(true) {
+				adm.printFurnn();
+				logger.info("Would you like to accept them?");
+				String g= scanner.nextLine();
+				g= scanner.nextLine();
+				if(g.equals("yes")) {
+					adm.addFurrn();
+					logger.info("Would you like to \n1. log out \n2. go back to the main menu?\n");
+		    		  int o =scanner.nextInt();    	
+		    		  if(o==1) {
+		    			  break;
+		    		  }
+		    		  else if(o==2) {
+		    			 continue;
+		    		  }
+				}
+				else if (g.equals("no")) {
+					continue;
+				}
+				
+				}
+			break;
 		}
 		
 		else if(c==2) {
@@ -303,10 +326,15 @@ logger.info("Password: ");
 			 }
 		}
 		
+		else if(c==3) {
+			  logger.info("THE LIST OF information about apartment to accept from admin:\n");
+	       adm.apartmentrequest();		
+	       }
+
+		
  }
  
  
  
- 
-	break;}
+ }
 }}

@@ -10,7 +10,7 @@ public class LOGIN {
     private String enteredEmail;
     private String enteredPassword;
     private static int choice;
-    private static List<User> userlist=Tenant.liss();
+    private  List<User> userlist=Tenant.liss();
     private static String tyu = "";
     private static String ten = "";
 	 static Logger logger =  Logger.getLogger(LOGIN.class.getName());
@@ -39,7 +39,7 @@ public class LOGIN {
     
     
     
-    public static boolean performLogin(String email, String password) {
+    public boolean performLogin(String email, String password) {
         for (User userr : userlist) {
             if (userr.getEmail().equals(email) && userr.getPassword().equals(password)  ) {
                 tyu = userr.gettype();
@@ -56,25 +56,19 @@ public class LOGIN {
     }
     
     public boolean getO() {
-   	 if(tyu.equals("owner") ) {
-   		 return true ;
-   	 }
-   	 return false;
+        return tyu.equals("owner");
     }
+
     
     public boolean getT() {
-   	 if(tyu.equals("tenant")) {
-   		 return true ;
-   	 }
-   	 return false;
+        return tyu.equals("tenant");
     }
+
     
     public boolean getD() {
-      	 if(tyu.equals("admin")) {
-      		 return true ;
-      	 }
-      	 return false;
-       }
+        return tyu.equals("admin");
+    }
+
 
     
     

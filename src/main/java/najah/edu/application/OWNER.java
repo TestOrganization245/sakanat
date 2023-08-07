@@ -911,4 +911,23 @@ public class OWNER {
 	  public int zget() {
 		  return ibtisam;
 	  }
+	  ////
+	  public void processApartmentRequests() {
+		    logger.info("THE LIST OF information about apartment to accept from admin:\n");
+
+		    if (newapplication() == null) {
+		        logger.info("NOT apartment to adding ***");
+		    } else {
+		        logger.info("* Are You need to accept the request of adding the apartment from owner ?\n(the answer between this choice (yes || YES || NO || no)\n");
+
+		        String y = s.nextLine();
+		        if (y.equalsIgnoreCase("yes")) {
+		           Approval();
+		        } else if (y.equalsIgnoreCase("no")) {
+		            logger.info("OK, admin not accept this adding.... ");
+		        } else {
+		            logger.info("no correct the choices \n");
+		        }
+		    }
+		}
 }

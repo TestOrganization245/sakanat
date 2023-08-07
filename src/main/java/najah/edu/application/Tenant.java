@@ -128,7 +128,13 @@ class House {
  
  
 public class Tenant {
-	Logger logger = Logger.getLogger(Tenant.class.getName());
+	private static final String b = "tenant";
+	private static final String o = "owner";
+	private static final String a = "admin";
+	private static final String s = "student";
+	private static final String f = "family";
+
+	static Logger logger = Logger.getLogger(Tenant.class.getName());
 	static LOGIN login=new LOGIN();
 	private static String y;
 	private static double price;
@@ -145,44 +151,44 @@ public class Tenant {
     public Tenant() {
     	this.scanner = new Scanner(System.in);
         userList = new ArrayList<User>();
-        userList.add(new User("Lama","example1@example.com", "password1" , "tenant","123", 18, "I Don't Work, I'm a princess <3","1"));
-        userList.add(new User("Ibtissam","example2@example.com", "password2" , "owner","123", 27 , "Waiter at a resturent","2"));
-        userList.add(new User("Sami","example3@example.com", "password3" , "admin","234", 21 , "WEWE","1"));
-        userList.add(new User("Waleed","example4@example.com", "password4" , "owner","85", 32 , "WEWE","2"));
+        userList.add(new User("Lama","example1@example.com", "password1" ,b ,"123", 18, "I Don't Work, I'm a princess <3","1"));
+        userList.add(new User("Ibtissam","example2@example.com", "password2" , o,"123", 27 , "Waiter at a resturent","2"));
+        userList.add(new User("Sami","example3@example.com", "password3" , a,"234", 21 , "WEWE","1"));
+        userList.add(new User("Waleed","example4@example.com", "password4" , o,"85", 32 , "WEWE","2"));
         
         this.scanner = new Scanner(System.in);
         houses = new ArrayList<House>();
-        houses.add(new House("PicLink1", 200, "Jenin", "Service1","123", "student", false));
-        houses.add(new House("PicLink2", 500, "Jenin", "Service2","234", "student", false));
-        houses.add(new House("PicLink3", 200, "Jenin", "Service3","456", "family", false));
-        houses.add(new House("PicLink4", 200, "Jenin", "Service4","85", "family", true));
-        houses.add(new House("PicLink5", 200, "Jenin", "Service3","89", "student", true));
+        houses.add(new House("C:\\Users\\hp\\Desktop\\PICTURES1", 200, "Jenin", "Very good Network","123", s, false));
+        houses.add(new House("C:\\Users\\hp\\Desktop\\PICTURES2", 500, "Nablus", "Water service is very good","234", s, false));
+        houses.add(new House("C:\\Users\\hp\\Desktop\\PICTURES3", 200, "Ramallah", "Network is good","456", f, false));
+        houses.add(new House("C:\\Users\\hp\\Desktop\\PICTURES4", 200, "Kufurrai", "Electricity won't cut off","85", f, true));
+        houses.add(new House("C:\\Users\\hp\\Desktop\\PICTURES5", 200, "Tulkarm", "Excellent network","89", s, true));
         
         this.scanner = new Scanner(System.in);
         furniture = new ArrayList<Furn>();
-        furniture.add(new Furn("PicLink1", 200, "Used only for 2 weeks","1"));
-        furniture.add(new Furn("PicLink2", 100, "Haven't been used.","1"));
-        furniture.add(new Furn("PicLink3", 200, "No details available.","2"));
+        furniture.add(new Furn("C:\\Users\\hp\\Desktop\\PICTURES", 200, "Used only for 2 weeks","1"));
+        furniture.add(new Furn("C:\\Users\\hp\\Desktop", 100, "Haven't been used.","1"));
+        furniture.add(new Furn("C:\\Users\\hp\\Desktop\\PICTURES\\p1", 200, "No details available.","2"));
         
         newFurniture = new ArrayList<Furn>();
         
     }
     
     public static List<User> liss(){
-    	 userList.add(new User("Lama","example1@example.com", "password1" , "tenant","123", 18, "I Don't Work, I'm a princess <3","1"));
-         userList.add(new User("Ibtissam","example2@example.com", "password2" , "owner","123", 27 , "Waiter at a resturent","2"));
-         userList.add(new User("Sami","example3@example.com", "password3" , "admin","234", 21 , "WEWE","3"));
+    	 userList.add(new User("Lama","example1@example.com", "password1" , b,"123", 18, "I Don't Work, I'm a princess <3","1"));
+         userList.add(new User("Ibtissam","example2@example.com", "password2" , o,"123", 27 , "Waiter at a resturent","2"));
+         userList.add(new User("Sami","example3@example.com", "password3" , a,"234", 21 , "WEWE","3"));
          
              return userList;
         }
     
     
-    public static ArrayList<House> lisH(){
-    	 houses.add(new House("PicLink1", 200, "Jenin", "Service1","123", "student", false));
-         houses.add(new House("PicLink2", 500, "Jenin", "Service2","234", "student", false));
-         houses.add(new House("PicLink3", 200, "Jenin", "Service3","456", "family", false));
-         houses.add(new House("PicLink4", 200, "Jenin", "Service4","85", "family", true));
-         houses.add(new House("PicLink5", 200, "Jenin", "Service3","89", "student", true));
+    public static List<House> lisH(){
+        houses.add(new House("C:\\Users\\hp\\Desktop\\PICTURES1", 200, "Jenin", "Very good Network","123", s, false));
+        houses.add(new House("C:\\Users\\hp\\Desktop\\PICTURES2", 500, "Nablus", "Water service is very good","234", s, false));
+        houses.add(new House("C:\\Users\\hp\\Desktop\\PICTURES3", 200, "Ramallah", "Network is good","456", f, false));
+        houses.add(new House("C:\\Users\\hp\\Desktop\\PICTURES4", 200, "Kufurrai", "Electricity won't cut off","85", f, true));
+        houses.add(new House("C:\\Users\\hp\\Desktop\\PICTURES5", 200, "Tulkarm", "Excellent network","89", s, true));
             return houses;
        }
     
@@ -192,9 +198,9 @@ public class Tenant {
     
     
     public void printTenant() {
-    	System.err.println();
-    	System.err.println("*******    Welcome our tenant!!    *******");
-    	System.err.println("Would you like to \n 1. view the available houses \n 2. Advertise your own used furniture?");
+    	logger.info("\n");
+    	logger.info("*******    Welcome our tenant!!    *******");
+    	logger.info("Would you like to \n 1. view the available houses \n 2. Advertise your own used furniture?");
     }
     
     
@@ -226,7 +232,7 @@ public class Tenant {
         public static void printColorText(String text, ConsoleColor color) {
             String colorCode = "\u001B[" + color.getCode() + "m";
             String resetCode = "\u001B[0m";
-            System.err.println(colorCode + text + resetCode);
+            logger.info(colorCode + text + resetCode);
         }
         public enum ConsoleColor {
             RED("31"),
@@ -282,7 +288,6 @@ public class Tenant {
     		return false;
     }
     
-
     
     
     
@@ -293,22 +298,27 @@ public class Tenant {
     public String stuHousing(int z) {
     	System.err.println(z);
     	String ret="\n===  The following students are living in this house:\n\n";
-    	 for (int counter = 0; counter < userList.size()/2; counter++) { 	
-    		 if((houses.get(z-1).getID().equals(userList.get(counter).getID()))&&(userList.get(counter).gettype().equalsIgnoreCase("tenant")))
-              		ret+=("Name:    "+userList.get(counter).getName()+"\n"+"Age:    "+userList.get(counter).getage()+"\nJob:    "+ userList.get(counter).getJob()+"\n\n");
-         }   
+    	StringBuilder resultBuilder = new StringBuilder();
+
+    	for (int counter = 0; counter < userList.size() / 2; counter++) {
+    	    if (houses.get(z - 1).getID().equals(userList.get(counter).getID()) && userList.get(counter).gettype().equalsIgnoreCase("tenant")) {
+    	        resultBuilder.append("Name:    ").append(userList.get(counter).getName()).append("\n");
+    	        resultBuilder.append("Age:    ").append(userList.get(counter).getage()).append("\n");
+    	        resultBuilder.append("Job:    ").append(userList.get(counter).getJob()).append("\n\n");
+    	    }
+    	}
+
+    	String result = resultBuilder.toString();
+ 
     	return ret;
     }
     
     
     public static String generateRandomDate() {
-       // Random random = new Random();
-       // int year = random.nextInt(1) + 2024;
-       // int month = random.nextInt(12);
-    //    int day = random.nextInt(30);
-    	int month = 2;
-    	int year = 2024;
-    	int day= 30;
+        Random random = new Random();
+        int year = random.nextInt(1) + 2024;
+        int month = random.nextInt(12);
+        int day = random.nextInt(30);
         return ("And the payment operation must be done before the date :     "+ day+"-" + month+"-"+year);
     }
     
@@ -329,18 +339,17 @@ public class Tenant {
     	}
     }
     
-
     
     
     public boolean addFurnn(String pic, double price, String details, String userid) {
     	newFurniture.add(new Furn(pic, price, details,userid));
-    	System.out.println("\nA REQUEST HAS BEEN SENT\n== Your furniture will be added to the system as long as the adminstrator accepts it.");
+    	logger.info("\nA REQUEST HAS BEEN SENT\n== Your furniture will be added to the system as long as the adminstrator accepts it.");
     	return false;
     }
     
     
     
-    public static void Furnn() {
+    public static void furnn() {
     	
     	for(int i=0;i<newFurniture.size();i++) {
     		furniture.add(new Furn(newFurniture.get(i).getPic(),newFurniture.get(i).getPrice(),newFurniture.get(i).getDetails(),newFurniture.get(i).getUserId()));
@@ -353,11 +362,10 @@ public class Tenant {
     public void printFurn() {
     	for (int counter = 0; counter < furniture.size(); counter++) { 	
     		logger.info(furniture.get(counter).getPic());
-   		System.out.println(furniture.get(counter).getPrice());
+    		logger.info(furniture.get(counter).getPrice()+"");
    		logger.info(furniture.get(counter).getDetails());
         }  
     }
-
    
     
     

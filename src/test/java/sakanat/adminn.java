@@ -97,13 +97,15 @@ public void theAdminstratorMenu() {
 
 @When("I press the first choice")
 public void iPressTheFirstChoice() {
+	adm.apartmentrequest();
 }
 
 @Then("the data will be added succesfully")
 public void theDataWillBeAddedSuccesfully() {
-	if(choice==3) {
+	
 		System.out.println("Ibtisam t3bt mennek");
-	}
+		
+	
     // Write code here that turns the phrase above into concrete actions
    // throw new io.cucumber.java.PendingException();
 	//System.out.print("HHHHHHHHHHHHHHHHHHHHHH");
