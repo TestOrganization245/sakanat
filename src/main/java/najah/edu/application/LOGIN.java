@@ -4,16 +4,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class LOGIN {
-	public Tenant user = new Tenant();
-	public static String em ;
-    private boolean loggedIn;
-    private String welcomeMessage;
+ Tenant user = new Tenant();
     Scanner scanner=new Scanner(System.in);
     private String enteredEmail;
     private String enteredPassword;
-    private String enteredtype;
     public static int choice;
-    public List<User> userlist=user.liss();
+    public List<User> userlist=Tenant.liss();
     public static String tyu = "";
     public static String ten = "";
     
@@ -45,15 +41,11 @@ public class LOGIN {
     public boolean performLogin(String email, String password) {
         for (User user : userlist) {
             if (user.getEmail().equals(email) && user.getPassword().equals(password)  ) {
-                loggedIn = true;
-                em = user.getEmail();
                 tyu = user.gettype();
                 return true;
                
             }
         }
-        loggedIn = false;
-        welcomeMessage = null;
         return false;
     }
     
