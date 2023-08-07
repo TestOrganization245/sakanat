@@ -2,34 +2,35 @@ package najah.edu.application;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class LOGIN {
  Tenant user = new Tenant();
     Scanner scanner=new Scanner(System.in);
     private String enteredEmail;
     private String enteredPassword;
-    public static int choice;
-    public List<User> userlist=Tenant.liss();
-    public static String tyu = "";
-    public static String ten = "";
-    
+    private static int choice;
+    private static List<User> userlist=Tenant.liss();
+    private static String tyu = "";
+    private static String ten = "";
+	 static Logger logger =  Logger.getLogger(LOGIN.class.getName());
+
+	
     public boolean run(int p) {
-        if(p==1) {
-        	return true;
-        }
-        return false;
-        }
+        return p == 1;
+    }
+
 
 
     public void navigateToLoginPage(String email,String password) {
          	   enteredPassword=password;
          	  enteredEmail=email;
          	    if (performLogin(enteredEmail, enteredPassword)) {
-         	        System.out.println("Login successful.");
-         	       System.out.println();
-         	      System.out.println();
+         	        logger.info("Login successful.");
+         	       logger.info("\n");
+         	      logger.info("\n");
          	    } else {
-         	        System.out.println("Invalid email or password. Please try again.");
+         	    	logger.info("Invalid email or password. Please try again.");
          	    }
             
     }
@@ -38,10 +39,10 @@ public class LOGIN {
     
     
     
-    public boolean performLogin(String email, String password) {
-        for (User user : userlist) {
-            if (user.getEmail().equals(email) && user.getPassword().equals(password)  ) {
-                tyu = user.gettype();
+    public static boolean performLogin(String email, String password) {
+        for (User userr : userlist) {
+            if (userr.getEmail().equals(email) && userr.getPassword().equals(password)  ) {
+                tyu = userr.gettype();
                 return true;
                
             }
@@ -55,21 +56,21 @@ public class LOGIN {
     }
     
     public boolean getO() {
-   	 if(tyu == "owner") {
+   	 if(tyu.equals("owner") ) {
    		 return true ;
    	 }
    	 return false;
     }
     
     public boolean getT() {
-   	 if(tyu == "tenant") {
+   	 if(tyu.equals("tenant")) {
    		 return true ;
    	 }
    	 return false;
     }
     
     public boolean getD() {
-      	 if(tyu == "admin") {
+      	 if(tyu.equals("admin")) {
       		 return true ;
       	 }
       	 return false;
