@@ -83,7 +83,7 @@ public class OWNER {
 	//
 	
 	
-	private static  Tenant tanentt = new Tenant();
+	public static  Tenant tanentt = new Tenant();
 	   private static final List<User> userlist= tanentt.liss();
 
     private static final String FILE_PATH = "C:\\Users\\Lenovo\\eclipse-workspace\\sakanat\\recidense";
@@ -364,9 +364,7 @@ public class OWNER {
 	  
 	  public boolean  viewjust() {
 		  res = readffile(FILE_PATH);
-		  if (res == null) {
-			    return false;
-			} else if (res.isEmpty()) {
+		  if (res.isEmpty()) {
 			    return false;
 			} else {
 			    for (int i = 0; i < res.size(); i++) {
@@ -533,9 +531,10 @@ public class OWNER {
 	    public static List<Residence> readffile(String filePath) {
 	        List<Residence> residences = new ArrayList<Residence>();
 	        BufferedReader reader = null;
-	        int reid = 1;
+	       
 
 	        try {
+	       
 	            reader = new BufferedReader(new FileReader(filePath));
 	            String line;
 
@@ -551,7 +550,7 @@ public class OWNER {
 
 	                Residence residence = new Residence(location, floorNum, services, monthlyRent, inclusive,contactInfo, ownerID );
 	                residences.add(residence);
-	                reid++;
+	        
 	            }
 	        } catch (IOException e) {
 	            logger.log(Level.SEVERE, "Error reading file: " );
@@ -799,8 +798,8 @@ public class OWNER {
 		}
 	 
 	 
-	 public static  String selectedResidenceId;
-	    public static int numFloor; 
+	  static  String selectedResidenceId;
+	     static int numFloor; 
 
 	    public static boolean selectIdRes(String residenceId) {
 	        for (String residenceInfo : residences) {
@@ -826,7 +825,7 @@ public class OWNER {
 		    return selectedResidenceId;
 		}
 	 public int getnumfloor() {
-		    String selectedResidenceId = getSelectedResidenceId(); // Assuming you have a method to get the selected ID
+		    String selectedResidence = getSelectedResidenceId(); // Assuming you have a method to get the selected ID
 
 		    for (String residenceInfo : residences) {
 		        String[] residenceData = residenceInfo.split(", ");
@@ -834,7 +833,7 @@ public class OWNER {
 		        String idStr = residenceData[residenceData.length - 1];
 		        String id = idStr.substring(idStr.lastIndexOf(" ") + 1).trim();
 
-		        if (id.equals(selectedResidenceId)) {
+		        if (id.equals(selectedResidence)) {
 		            String floorsStr = residenceData[residenceData.length - 1];
 		         
 		           return Integer.parseInt(floorsStr.substring(floorsStr.lastIndexOf(":") + 1).trim());
