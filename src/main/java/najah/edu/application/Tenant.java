@@ -302,10 +302,13 @@ public class Tenant {
     
     
     public static String generateRandomDate() {
-        Random random = new Random();
-        int year = random.nextInt(1) + 2024;
-        int month = random.nextInt(12);
-        int day = random.nextInt(30);
+       // Random random = new Random();
+       // int year = random.nextInt(1) + 2024;
+       // int month = random.nextInt(12);
+    //    int day = random.nextInt(30);
+    	int month = 2;
+    	int year = 2024;
+    	int day= 30;
         return ("And the payment operation must be done before the date :     "+ day+"-" + month+"-"+year);
     }
     
