@@ -1,173 +1,143 @@
 package sakanat;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.Assert;
+ 
 
-import java.util.Scanner;
 
 import org.junit.jupiter.api.Assertions;
-
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import najah.edu.application.LOGIN;
-import najah.edu.application.OWNER;
+import najah.edu.application.Adminstrator;
+import najah.edu.application.Tenant;
 
-public class adminn {
-	public static boolean check ;
-	static	String  email;
-	static	String  password;
-	static String  checkresadd ;
-public static boolean D=false;
-	public static LOGIN ll = new LOGIN(); 
-	@Given("I am an admin whose email is {string}")
-	public String iAmAnAdminWhoseEmailIs(String string) {
+//import najah.edu.application.MyApplication;
+import static org.junit.Assert.*;
+
+import java.util.Scanner;
+public class adminn{
+	private static Tenant T=new Tenant();
+    static Adminstrator adm=new Adminstrator();
+
+	//private MyApplication app;
+	public static int choice;
+	private static String pic;
+	private static double price;
+
+	private static String details;
+
+	private static String furnID;
+
+	@Given("That I AM in the admin page")
+	public void thatIAMInTheAdminPage() {
 	    // Write code here that turns the phrase above into concrete actions
-	//    throw new io.cucumber.java.PendingException();
-		email = string ;
-		return email;
+	    //throw new io.cucumber.java.PendingException();
 	}
 
-	@Given("my password is {string}")
-	public String myPasswordIs(String string) {
+
+
+
+	@Given("i have a furn request with a pic link {string}")
+	public String iHaveAFurnRequestWithAPicLink(String string) {
 	    // Write code here that turns the phrase above into concrete actions
-	//    throw new io.cucumber.java.PendingException();
-		password = string ;
-		return password;
+		pic=string;
+		return pic;
 	}
-		
-		
-	@When("I press login button")
-	public void iPressLoginButton() {
+	
+	
+	@Given("a price equals to {string}")
+	public double aPriceEqualsTo(String string) {
 	    // Write code here that turns the phrase above into concrete actions
-	 //   throw new io.cucumber.java.PendingException();
-		ll.performLogin(email, password);
-		Assertions.assertTrue(ll.getD());
+	    price=Double.parseDouble(string);
+	    return price;
 	}
-	@Then("The Following choices will be available")
-	public void theFollowingChoicesWillBeAvailable(io.cucumber.datatable.DataTable dataTable) {
+	
+	@Given("with details like {string}")
+	public String withDetailsLike(String string) {
 	    // Write code here that turns the phrase above into concrete actions
-	    // For automatic transformation, change DataTable to one of
-	    // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-	    // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-	    // Double, Byte, Short, Long, BigInteger or BigDecimal.
-	    //
-	    // For other transformations you can register a DataTableType.
+	    //throw new io.cucumber.java.PendingException();
+		details=string;
+		return string;
+	}
+	
+	@Given("it's ID is {string}")
+	public String itSIDIs(String string) {
+		furnID=string;
+		return furnID;
+	    // Write code here that turns the phrase above into concrete actions
 	   // throw new io.cucumber.java.PendingException();
 	}
+	@When("i choose the add button")
+	public void iChooseTheAddButton() {
+		T.addFurnn(pic, price, details, furnID);
 
-//scenario 2
-
-	@Given("That I choose to accept some apartment request")
-	public void thatIChooseToAcceptSomeApartmentRequest() {
-	    // Write code here that turns the phrase above into concrete actions
-	   // throw new io.cucumber.java.PendingException();
-		System.out.println("***************************************");
-		System.out.println("TESTING SCENARIO : apartment acceptance" + "\n" + "CHECK IF THE  new appartment need to accept from admin to add in RES \n");
-		
-		OWNER nn = new OWNER();
-		
-		
-		        checkresadd = nn.newapplication();
-		        //s
-		        
-		        
-		      //  System.out.print("iii  " + checkresadd);
-		        if (checkresadd == null) {
-		        	check = false;
-		        //    System.out.print("nulllll11");
-		        } else {
-		        	check = true;
-		         //   System.out.print("not nullll");
-		        }
-		   // }
-	}
-
-
-	
-	//
-	
-	@Then("the system should display an appropriate message about new apartment requests")
-	public void theSystemShouldDisplayAnAppropriateMessageAboutNewApartmentRequests() {
-	    // Write code here that turns the phrase above into concrete actions
-	//    throw new io.cucumber.java.PendingException();
-		System.out.println("checkresadd:  " + checkresadd);
-		System.out.println("****check if the arraylist contain the new apartment in resicedence******");
-		if (check == false) {
-		    // check = false;
-			System.out.println("***the arraylist not contain new apartment to adding from admin****");
-			Assertions.assertFalse(check);
-			
-
-		}
-		else {
-			//check = true;
-			System.out.println("***The arraylist  contain new apartment to adding from admin****");
-			Assertions.assertTrue(check);
-		}
-		
-		
-	}
-	@Then("the system should indicate if there are new apartments to be accepted")
-	public void theSystemShouldIndicateIfThereAreNewApartmentsToBeAccepted() {
 	    // Write code here that turns the phrase above into concrete actions
 	  //  throw new io.cucumber.java.PendingException();
-		Assertions.assertFalse(check);
-
+		
+	}
+	@Then("the furniture request must be accepted")
+	public void theFurnitureRequestMustBeAccepted() {
+	   adm.addFurrn();
 	}
 
-	
 
 
 
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	///
-	//scenario 3
-	@Given("That I choose To accept some Furniture request")
-	public void thatIChooseToAcceptSomeFurnitureRequest() {
-	    // Write code here that turns the phrase above into concrete actions
-	   // throw new io.cucumber.java.PendingException();
+
+
+
+
+@Given("The adminstrator menu")
+public void theAdminstratorMenu() {
+   System.out.println();
+}
+
+@When("I press the first choice")
+public void iPressTheFirstChoice() {
+}
+
+@Then("the data will be added succesfully")
+public void theDataWillBeAddedSuccesfully() {
+	if(choice==3) {
+		System.out.println("Ibtisam t3bt mennek");
 	}
+    // Write code here that turns the phrase above into concrete actions
+   // throw new io.cucumber.java.PendingException();
+	//System.out.print("HHHHHHHHHHHHHHHHHHHHHH");
+}
 
-	@Then("error message must show that it has been added successfully")
-	public void errorMessageMustShowThatItHasBeenAddedSuccessfully() {
-	    // Write code here that turns the phrase above into concrete actions
-	   // throw new io.cucumber.java.PendingException();
+
+
+
+@Given("The adminstrator menu is shown")
+public void theAdminstratorMenuIsShown() {
+    // Write code here that turns the phrase above into concrete actions
+    //throw new io.cucumber.java.PendingException();
+}
+
+@When("That I choose the Available Reservations button")
+public void thatIChooseTheAvailableReservationsButton() {
+    // Write code here that turns the phrase above into concrete actions
+   // throw new io.cucumber.java.PendingException();
+	//System.out.println("WEWEEEEEEEEEEEEEEEE");
+}
+@Then("the data will be shown correctly")
+public void theDataWillBeShownCorrectly() {
+	if(choice==2) {
+		//app.checkReserved();
+		System.out.println("WEWEEEEEEEEEEEEEEEE");
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+    // Write code here that turns the phrase above into concrete actions
+    //throw new io.cucumber.java.PendingException();
+}
+
 
 
 
 
 
 }
+

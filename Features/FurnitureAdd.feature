@@ -6,3 +6,10 @@ When i add a pic with the url "www.test.com"
 And i add price which equals 50.0
 And some additional details like "have a good discount 20%"
 Then an eeror message must appear that the addition operation isnt allowed until the admin accepts it
+
+
+Scenario: view Furniture
+Given Im thee tenant with the email "example1@example.com"
+When i choose to view the whole furnitures in the arraylist
+Then the result must appear
+

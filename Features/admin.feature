@@ -1,20 +1,21 @@
 Feature: admin page
-Scenario: viewAdminstrator
-Given I am an admin whose email is "example3@example.com"
-And my password is "password3"
-When I press login button
-Then The Following choices will be available
-| Advertisment requests |
-| Available reservations|
-| Apartements Requests  |
+Scenario: adminetrator
+Given That I AM in the admin page
+And i have a furn request with a pic link "C:\Users\hp\Desktop\gg"
+And a price equals to "100.0"
+And with details like "Good electricity"
+And it's ID is "155"
+When i choose the add button
+Then the furniture request must be accepted
 
 
-Scenario: Furniture acceptance
-Given That I choose To accept some Furniture request
-Then error message must show that it has been added successfully
+Scenario: apartment acceptance
+Given The adminstrator menu 
+When I press the first choice
+Then the data will be added succesfully
 
+Scenario: Available Reservations
+Given The adminstrator menu is shown
+When That I choose the Available Reservations button
+Then the data will be shown correctly
 
-Scenario: Check if there are new apartments to be accepted
-Given That I choose to accept some apartment request
-Then the system should display an appropriate message about new apartment requests
-And the system should indicate if there are new apartments to be accepted

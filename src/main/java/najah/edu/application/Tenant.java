@@ -110,11 +110,11 @@ class House {
 	       this.details=details;
 	       this.userid=userid;
 	    }
+	 public String getPic() {
+	        return pic;
+	    }
 	  public double getPrice() {
 	        return price;
-	    }
-	  public String getPic() {
-	        return pic;
 	    }
 	  public String getDetails() {
 	        return details;
@@ -131,13 +131,12 @@ public class Tenant {
 	Logger logger = Logger.getLogger(Tenant.class.getName());
 	static LOGIN login=new LOGIN();
 	private static String y;
-	private static int v;
 	private static double price;
 	private static String pic;
 	private static String housenum;
     private static List<User> userList;
     private static ArrayList<House> houses;
-    private ArrayList<Furn> furniture;
+    private static ArrayList<Furn> furniture;
     private static ArrayList<Furn> newFurniture;
     private Scanner scanner;
     
@@ -178,10 +177,12 @@ public class Tenant {
         }
     
     
-    public static List<House> lisH(){
-        houses.add(new House("PicLink1", 200, "Jenin", "Service1","123", "student", false));
-        houses.add(new House("PicLink2", 500, "Jenin", "Service2","234", "student", false));
-        houses.add(new House("PicLink3", 200, "Jenin", "Service3","456", "family", false));
+    public static ArrayList<House> lisH(){
+    	 houses.add(new House("PicLink1", 200, "Jenin", "Service1","123", "student", false));
+         houses.add(new House("PicLink2", 500, "Jenin", "Service2","234", "student", false));
+         houses.add(new House("PicLink3", 200, "Jenin", "Service3","456", "family", false));
+         houses.add(new House("PicLink4", 200, "Jenin", "Service4","85", "family", true));
+         houses.add(new House("PicLink5", 200, "Jenin", "Service3","89", "student", true));
             return houses;
        }
     
@@ -220,108 +221,7 @@ public class Tenant {
     }
     
     
-    
-    
-    public void housesDetailes(String mail) {
-    	while(true) {
-    		logger.info("\n");
-    		logger.info("\n");
-    	Scanner scanner= new Scanner(System.in);
-    	v= scanner.nextInt();
-    	logger.info(hhouse(v));
-    	logger.info("\n");
-    	logger.info("\n");
-    	logger.info("Would you like to \n1. Go Back \n2. Accomodate this house");
-    	int z =scanner.nextInt();
-    	if(z==1) {
-    		myView();
-    		continue;
-    	}
-    	else if(z==2) {
-    		 if(check(v)) {
-    		    	y=scanner.nextLine();
-    		    	y=scanner.nextLine();
-    		    	if(y.equalsIgnoreCase("yes")) {
-    		    		logger.info(stuHousing(v));
-    		    		logger.info("Would you like to \n1. Go Back \n2. Accomodate this house");
-    		        	z =scanner.nextInt();
-    		        	if(z==1) {
-    		        		myView();
-    		        		continue;
-    		        	}
-    		        	else if(z==2) {
-    		        		logger.info("    =====================================================================");
-    		        		logger.info("    ============== YOU'VE ACCOMADATED THIS HOUSE SUCCESSFULLY ===========");
-        		    		logger.info("    =====================================================================\n");
-        		    		printColorText    ("________________________________________________________________________________",ConsoleColor.RED);
-        		    		printColorText    ("=============================== CONTROL PANEL ==================================",ConsoleColor.GREEN);
-        		    		printColorText    ("________________________________________________________________________________",ConsoleColor.RED);
-        		    		logger.info("\n");
-        		    		specifiedData(mail);
-        		    		logger.info("\n");
-        		    		printColorText    ("________________________________________________________________________________",ConsoleColor.RED);
-        		    		logger.info("Would you like to \n1. log out \n2. go back to the main menu?\n");
-        		    		  int o =scanner.nextInt();    	
-        		    		  if(o==1) {
-        		    			  break;
-        		    		  }
-        		    		  else if(o==2) {
-        		    			  myView();
-        		    			  continue;
-        		    		  }
-    		        	}
-    		    		
-    		    	}
-    		    	else if(y.equalsIgnoreCase("no")) {
-    		    		logger.info("    =====================================================================");
-    		    		logger.info("    ============== YOU'VE ACCOMADATED THIS HOUSE SUCCESSFULLY ===========");
-    		    		logger.info("    =====================================================================\n");
-    		    		printColorText    ("________________________________________________________________________________",ConsoleColor.RED);
-    		    		printColorText    ("=============================== CONTROL PANEL ==================================",ConsoleColor.GREEN);
-    		    		printColorText    ("________________________________________________________________________________",ConsoleColor.RED);
-    		    		logger.info("\n");
-    		    		specifiedData(mail);
-    		    		logger.info("\n");
-    		    		printColorText    ("________________________________________________________________________________",ConsoleColor.RED);
-    		    		logger.info("Would you like to \n1. log out \n2. go back to the main menu?\n");
-    		    		  int o =scanner.nextInt();    	
-    		    		  if(o==1) {
-    		    			  break;
-    		    		  }
-    		    		  else if(o==2) {
-    		    			  myView();
-    		    			  continue;
-    		    		  }
-    		    	}
-    		    }
-    		    else if(check(v)==false) {
-    		    	logger.info("    =====================================================================");
-    		    	logger.info("    ============== YOU'VE ACCOMADATED THIS HOUSE SUCCESSFULLY ===========");
-    		    	logger.info("    =====================================================================\n");
-		    		printColorText    ("________________________________________________________________________________\n",ConsoleColor.RED);
-		    		printColorText    ("=============================== CONTROL PANEL ==================================",ConsoleColor.GREEN);
-		    		printColorText    ("________________________________________________________________________________",ConsoleColor.RED);
-		    		logger.info("\n");
-		    		specifiedData(mail);
-		    		logger.info("\n");
-		    		printColorText    ("________________________________________________________________________________",ConsoleColor.RED);
-		    		logger.info("Would you like to \n1. log out \n2. go back to the main menu?\n");
-		    		  int o =scanner.nextInt();    	
-		    		  if(o==1) {
-		    			  break;
-		    		  }
-		    		  else if(o==2) {
-		    			  myView();
-		    		  }
-    		    }
-    	}
-    	
-    	}
-    	
-    }
    
-    
-    
     
         public static void printColorText(String text, ConsoleColor color) {
             String colorCode = "\u001B[" + color.getCode() + "m";
@@ -353,7 +253,7 @@ public class Tenant {
     
     
     
-    public void specifiedData(String email) {
+    public void specifiedData(String email,int v) {
     	houses.get(v-1).setReserved(true);
     	printTenant(email);
     	printOwner(v);
@@ -382,14 +282,7 @@ public class Tenant {
     		return false;
     }
     
-    
-    public boolean checkk(int j) {
-    	if(houses.get(j-1).getType().equals("student")) {
-    		return true;
-    	}
-    	else
-    		return false;
-    }
+
     
     
     
@@ -433,65 +326,26 @@ public class Tenant {
     	}
     }
     
-    public boolean viewFurn(String mail) {
-    	String furnID="";
-    	logger.info("\n");
-    	logger.info("\n");
-    	logger.info("******** This window is designed for you to add your own furniture that you want to sell ");
-    	logger.info("\n");
-    	logger.info("= Please Add the following details");
-    	logger.info("Provide a good pic link:");
-            pic=scanner.nextLine();
-            logger.info("Attach some additional details");
-            String t3bt=scanner.nextLine();
-            logger.info("Provide the specified price");
-            price=scanner.nextDouble();
-            for(int i=0;i<userList.size()/2;i++) {
-            	if(mail==userList.get(i).getEmail()) {
-            		furnID=userList.get(i).furnID();
-            	}
-            }
-        	newFurniture.add(new Furn(pic, price, t3bt,furnID));
-        	for(int i=0;i<newFurniture.size();i++) {
-        		System.out.println(newFurniture.get(i).getPrice());
-            }
-    		printColorText    ("________________________________________________________________________________\n",ConsoleColor.RED);
-    		logger.info("\nA REQUEST HAS BEEN SENT\n== Your furniture will be added to the system as long as the adminstrator accepts it.");
-    		printColorText    ("________________________________________________________________________________",ConsoleColor.RED);
-            return false;
+
+    
+    
+    public boolean addFurnn(String pic, double price, String details, String userid) {
+    	newFurniture.add(new Furn(pic, price, details,userid));
+    	System.out.println("\nA REQUEST HAS BEEN SENT\n== Your furniture will be added to the system as long as the adminstrator accepts it.");
+    	return false;
     }
     
     
     
-    
-    
-    public boolean viewFurnn(String mail, String pic,double price, String det, String ID) {
-        	newFurniture.add(new Furn(pic, price, det,ID));
-    		printColorText    ("________________________________________________________________________________\n",ConsoleColor.RED);
-    		logger.info("\nA REQUEST HAS BEEN SENT\n== Your furniture will be added to the system as long as the adminstrator accepts it.");
-    		printColorText    ("________________________________________________________________________________",ConsoleColor.RED);
-            return false;
-    }
-    
-    
-    
-    public List<Furn> addFurnn() {
+    public static void Furnn() {
+    	
     	for(int i=0;i<newFurniture.size();i++) {
-    		System.out.println(newFurniture.get(i).getPrice());
+    		furniture.add(new Furn(newFurniture.get(i).getPic(),newFurniture.get(i).getPrice(),newFurniture.get(i).getDetails(),newFurniture.get(i).getUserId()));
         }
-return newFurniture;
     }
     
     
-    
-    public void addition(List <Furn> A, int s) {
-    	for(int i=0;i<A.size();i++) {
-    		if(i==(s-1)) {
-    			furniture.add(new Furn(A.get(i).getPic(), A.get(i).getPrice(),A.get(i).getDetails(),"123"));
-    		}
-    	}
-    }
-    
+ 
     
     public void printFurn() {
     	for (int counter = 0; counter < furniture.size(); counter++) { 	
@@ -500,43 +354,9 @@ return newFurniture;
    		logger.info(furniture.get(counter).getDetails());
         }  
     }
-    
+
    
     
-  
-    
-    
-  
-    
-    
-    
-    
-    
-    public void printMainAdminstrator() {
-    	logger.info("********* WELCOME TO THE ADMISTRATOR PAGE ! **************************\n-You have the following available options to see:\n1. Furniture advertisment requests\n2. Available reservations\n3. Apartment Requests.\n\n Which one would you like to view?");
-    }
-    
-    public void checkReserved() {
-    	int z=1;
-    	logger.info("\n");
-    	logger.info("******* RESERVED APARTMENTS:");
-    	for(int i=0; i<houses.size();i++) {
-    		if(houses.get(i).getReserved()==true) {
-    			logger.info(z+". Apartment number "+z+" with the following details "+houses.get(i).getID()+ " "+houses.get(i).getLocation()+ " "+houses.get(i).getPicLink()+ " "+houses.get(i).getprice()+ " "+houses.get(i).getservices()+"\n");
-    			z++;
-    		}
-    	}
-    	z=1;
-    	logger.info("\n");
-    	logger.info("******* UNRESERVED APARTMENTS:");
-    	for(int i=0; i<houses.size();i++) {
-    		if(houses.get(i).getReserved()==false) {
-    			
-    			logger.info(z+". Apartment number "+z+" with the following details "+houses.get(i).getID()+ " "+houses.get(i).getLocation()+ " "+houses.get(i).getPicLink()+ " "+houses.get(i).getprice()+ " "+houses.get(i).getservices()+"\n");
-    		z++;
-    		}
-    	}
-    }
     
     
 }

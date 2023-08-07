@@ -9,14 +9,19 @@ public class Adminstrator {
   private static final Scanner s  = new Scanner(System.in); 
    private static  Tenant user=new Tenant();
    private static final List<House> userlist= user.lisH();
-   private static final List<Furn> furnn= user.addFurnn();
-	public void printMenu() {
-		logger.info("****** Hello Adminstrater!!!!!!");
-		logger.info("You have the following available options to see:\n1. Furniture advertisment requests\n2. Available reservations\n3. Apartments requests");
-	  
-	}
+
 	
-	public void checkk(int x) {
+   
+   public void addFurrn() {
+	   Tenant.Furnn();
+	   user.printFurn();
+   }
+   
+   
+   
+   
+   
+	/*public void checkk(int x) {
 		if(x==1) { 
 			  furnn.clear();
 	            furnn.addAll(user.addFurnn());
@@ -29,7 +34,7 @@ public class Adminstrator {
 			logger.info("Which one would you like to accept?");
 			Scanner scanner=new Scanner(System.in);
 			int y=scanner.nextInt();
-			user.addition(furnn, y);
+			//user.addition(furnn, y);
 			
 			logger.info("\n");
 			user.printFurn();
@@ -78,6 +83,6 @@ public class Adminstrator {
 	            logger.info("no correct the choices \n");
 	        }
 	    }
-	}
+	}*/
 	
 }
